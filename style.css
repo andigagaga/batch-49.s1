@@ -1,0 +1,29 @@
+
+
+.card{
+    width: 700px; 
+    margin: 90px auto;
+}
+.judul-home{
+    font-size: 30px; 
+    font-family: Arial, Helvetica, 
+    sans-seri8;
+}
+.paragraf-home{
+    text-align: justify; 
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.button-home{
+    display: flex; 
+    margin-top: 35px;
+}
+.button-contact-home{
+    width: 80px; 
+    margin-right: 25px; 
+    height: 25px;
+    border-radius: 7px; 
+    color: white; 
+    background-color: black;
+    font-weight: bold;
+}
