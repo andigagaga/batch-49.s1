@@ -1,8 +1,18 @@
-
+body{
+    background-color: lightgoldenrodyellow;
+    margin: 0;
+    padding: 0;
+}
 
 .card{
-    width: 700px; 
+    width: 1150px; 
     margin: 90px auto;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px;
 }
 .judul-home{
     font-size: 30px; 
@@ -26,4 +36,77 @@
     color: white; 
     background-color: black;
     font-weight: bold;
+    border: none;
+}
+.button-contact-home:hover{
+    background-color: orangered;
+}
+.icon-home{
+    display: flex; 
+    justify-content: start; 
+    padding: 5px; 
+    margin-top: 90px;
+}
+.left{
+    flex: 50%;
+}
+.right{
+    display: flex; 
+    justify-content: end; 
+    margin-top: 20px; 
+    flex: 50%;
+    
+}
+.card-image{
+    background: white; 
+    box-shadow: 0 0 10px; 
+    width: 65%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+
+
+
+/* navbar */
+
+nav{
+    display: flex;
+    background-color: lightgrey;
+    border: 1px solid grey;
+}
+nav ul{
+    display: flex;
+}
+nav ul li {
+    display: flex;
+}
+nav ul li a{
+    text-decoration: none;
+    list-style-type: none;
+    margin-right: 40px;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    white-space: nowrap;
+}
+.nav-left{
+    display: flex;
+    flex: 70px;
+    align-items: center;
+}
+.nav-right{
+    display: flex;
+   margin-left: 820px;
+}
+.nav-right li a{
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+.active{
+    color: orangered;
 }

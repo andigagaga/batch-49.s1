@@ -1,0 +1,42 @@
+.div-contact-me {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+form{
+    width: 600px;
+}
+
+form div {
+    margin-top: 30px;
+}
+input, select, textarea {
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1px solid grey;
+    box-shadow: 0 0 15px;
+    padding: 10px;
+    resize: none;
+
+}
+
+.button-contact{
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
+}
+button{
+    border-radius: 5px;
+    padding: 6px 25px;
+    background-color: black;
+    border: none;
+    color: white;
+}
+button:hover{
+    background-color: orangered;
+}
+label{
+    font-weight: bold;
+}
