@@ -26,7 +26,7 @@ body{
 }
 .button-home{
     display: flex; 
-    margin-top: 35px;
+    margin-top: 80px;
 }
 .button-contact-home{
     width: 80px; 
@@ -45,7 +45,7 @@ body{
     display: flex; 
     justify-content: start; 
     padding: 5px; 
-    margin-top: 90px;
+    margin-top: 50px;
 }
 .left{
     flex: 50%;
