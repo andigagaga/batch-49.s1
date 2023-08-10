@@ -1,0 +1,134 @@
+.project{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+form div{
+    margin-top: 35px;
+    width: 600px;
+}
+form input, textarea{
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 5px;
+    margin-top: 15px;
+}
+form textarea{
+    height: 200px;
+    width: 99%;
+    resize: none;
+}
+form .input-project-name input{
+    width: 100%;
+}
+form .input-project-date input{
+    width: 250px;
+    display: flex;
+}
+.input-cekbox div{
+    flex: 45%;
+    display: flex;
+    justify-content: flex-start;
+}
+.input-cekbox label{
+    color: black;
+    margin-left: 15px;
+    
+}
+.input-cekbox input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-project-image-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#input-project-image {
+    display: none;
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.file-label p {
+    margin: 0;
+    margin-right: 10px;
+}
+
+.file-label img {
+    max-width: 24px;
+    max-height: 24px;
+    margin-left: auto; 
+}
+
+.input-project-button{
+    display: flex; 
+    justify-content: end;
+}
+.input-project-button button{
+    background-color: black; 
+    color: white; 
+    padding: 3px 10px;
+    border-radius: 3px;
+    border: none;
+    font-weight: bold;
+
+}
+.input-project-button button:hover{
+    background-color: white;
+    color: black;
+}
+
+/* LIST PROJECT */
+section{
+    margin-bottom: 50px;
+}
+.card-project{
+    width: 250px; 
+    background-color: white; 
+    box-shadow: 0 0 10px; 
+    padding: 10px;
+
+}
+.card-project-icon i{
+    margin-left: 5px;
+}
+.list-project-judul{
+    display: flex; 
+    justify-content: center; 
+    margin-top: 15px; 
+    margin-bottom: 15px;
+}
+.list-project-container{
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 50px; 
+    margin: 50px 50px auto;
+}
+.project-icon{
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px;
+}
+.project-button{
+    margin-top: 10px; 
+    display: flex;
+}

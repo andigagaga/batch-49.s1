@@ -1,1 +1,2 @@
 return = mengembalikan sebuah commen
+jangan lupa taktik
