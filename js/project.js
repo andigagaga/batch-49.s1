@@ -119,16 +119,6 @@ function getFullTime(time) {
         minutes = "0" + minutes
     }
 
-    // if (tanggal <= 7) {
-    //     minggu = minggu[0];
-    //   } else if (tanggal <= 14) {
-    //     minggu = minggu[1];
-    //   } else if (tanggal <= 21) {
-    //     minggu = minggu[2];
-    //   } else if (tanggal <= 31) {
-    //     minggu = minggu[3];
-    //   }
-
       return `${tanggal} ${bulan[indexBulan]}  ${tahun} ${hours}:${minutes} WIB`;
     //   console.log(time);
  }
