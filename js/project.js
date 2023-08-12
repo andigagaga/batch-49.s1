@@ -10,9 +10,19 @@ function addProject(event) {
     let description = document.getElementById("input-project-description").value;
     let image = document.getElementById("input-project-image").files;
 
+    if (title === "" || startDate === "" || endDate === "" || description === "" || image.length === 0) {
+        return alert("Harap isi semua kolom dan pilih sebuah gambar.");
+        // untuk peringatan kolom harus di isi semua
+    }
+
     // untuk menghitung durasi padat project
     let start = new Date(startDate);
     let end = new Date(endDate);
+
+    // validasi/kondisi start dan end date
+    if (end < start) {
+        return alert("Start Dan End Datenya Salah...")
+    }
     
     let timeDistance = end - start;
     
@@ -105,20 +115,19 @@ function renderProject() {
 
 function getFullTime(time) {
     let bulan = ["Jan", "Feb","March", "Apr", "May", "Jun", "Jul", "Aug", "Sept","Oct", "Nov","Desc"];
-    // let minggu = ["week 1", "week 2", "week 3", "week 4"];
     let tanggal = time.getDate();
     let indexBulan = time.getMonth();
     let tahun = time.getFullYear();
-    let hours = time.getHours();
+    let jam = time.getHours();
     let minutes = time.getMinutes();
 
-    if (hours < 10) {
-        hours = "0" + hours
+    if (jam < 10) {
+        jam = "0" + jam
     }
     if (minutes < 10) {
         minutes = "0" + minutes
     }
 
-      return `${tanggal} ${bulan[indexBulan]}  ${tahun} ${hours}:${minutes} WIB`;
+      return `${tanggal} ${bulan[indexBulan]}  ${tahun} ${jam}:${minutes} WIB`;
     //   console.log(time);
  }

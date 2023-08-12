@@ -30,6 +30,9 @@ form .input-project-date input{
     width: 250px;
     display: flex;
 }
+form label{
+    font-weight: bold;
+}
 .input-cekbox div{
     flex: 45%;
     display: flex;
@@ -97,8 +100,7 @@ form .input-project-date input{
 
 }
 .input-project-button button:hover{
-    background-color: white;
-    color: black;
+    background-color: orangered;
 }
 
 /* LIST PROJECT */
@@ -150,4 +152,18 @@ section{
     height: 100%;
     object-fit: cover;
 }
+.project-title{
+    width: 100%; 
+    overflow: hidden; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: blue;
+}
+
+
+/* PROJECT DETAIL */
+.card-project-detail{
+    text-align: justify;
+}
+
 

@@ -44,7 +44,7 @@ function submitedData(event) {
     // Melakukan refresh halaman setelah data dikirim
     setTimeout(function () {
         location.reload();
-    }, 500); // Menunggu 1 detik sebelum melakukan refresh
+    }, 500); // Menunggu 1/2 detik sebelum melakukan refresh
 
 
 }
