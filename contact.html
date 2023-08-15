@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact ME</title>
-    <link rel="stylesheet" href="css/contact.css"/>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Projects</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/contact.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
 <body>
 
-    <nav>
-        <ul>
-            <div class="nav-left">
+    <nav style="display: flex; justify-content: space-between;">
+        <div class="nav-left">
+            <ul>
                 <li>
                     <a href="">
                         <img src="images/logo_navbar.png" alt="logo-nav" style="width: 40px;"/>
                     </a>
                 </li>
-                <li>
-                    <a href="index.html">Home</a>
+                <li class="items-collapse">
+                    <a class="active" href="index.html">Home</a>
                 </li>
-                <li>
+                <li class="items-collapse">
                     <a href="project.html">My Project</a>
                 </li>
-            </div>
-            <div class="nav-right">
-                <li>
-                    <a class="active" href="contact.html">Contact Me</a>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li class="items-collapse">
+                    <a href="contact.html">Contact Me</a>
                 </li>
-            </div>
-           
-        </ul>
+                <div id="barsmenu">
+                    <button style="background-color: transparent; border: none;" onclick="openHamburger()">
+                        <i class=" fa-2x fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </ul>
+        </div>
     </nav>
+
+    <div class="hamburger-nav-container" id="hamburger-nav-container">
+        <a  href="index.html">Home</a>
+        <a href="project.html">My Project</a>
+        <a class="hamburger-active" href="contact.html">Contact Me</a>
+    </div>
+
     <div class="div-contact-me">
         <form>
             <h1 style="display: flex; justify-content: center; margin-bottom: 30px;">GET IN TOUCH📞</h1>
@@ -47,9 +63,9 @@
                 <label for="input-phone">Your Phone<b style="color: red;">*</b></label>
                 <input type="number" id="input-phone">
             </div>
-            <div>
+            <div class="input-subject">
                 <label for="input-subject">Subject</label>
-                <select id="input-subject" style="width: 602px;">
+                <select id="input-subject">
                     <option value="" hidden>Select</option>
                     <option>Front End</option>
                     <option>Back End</option>
@@ -66,5 +82,6 @@
         </form>
     </div>
     <script src="js/contact.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

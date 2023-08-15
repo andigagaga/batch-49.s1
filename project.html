@@ -11,86 +11,102 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <nav>
-        <ul>
-            <div class="nav-left">
+    
+    <nav style="display: flex; justify-content: space-between;">
+        <div class="nav-left">
+            <ul>
                 <li>
                     <a href="">
                         <img src="images/logo_navbar.png" alt="logo-nav" style="width: 40px;"/>
                     </a>
                 </li>
-                <li>
+                <li class="items-collapse">
                     <a  href="index.html">Home</a>
                 </li>
-                <li>
+                <li class="items-collapse">
                     <a class="active" href="project.html">My Project</a>
                 </li>
-            </div>
-            <div class="nav-right">
-                <li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li class="items-collapse">
                     <a href="contact.html">Contact Me</a>
                 </li>
-            </div>
-           
-        </ul>
+                <div id="barsmenu">
+                    <button style="background-color: transparent; border: none;" onclick="openHamburger()">
+                        <i class=" fa-2x fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </ul>
+        </div>
     </nav>
+
+    <div class="hamburger-nav-container" id="hamburger-nav-container">
+        <a  href="index.html">Home</a>
+        <a class="hamburger-active" href="project.html">My Project</a>
+        <a href="contact.html">Contact Me</a>
+    </div>
 
     <!-- FORM PROJECT -->
     <div class="project">
         <div class="project-form" style="display: flex; justify-content: center; margin-top: 50px;">
-            <form onsubmit="addProject(event)">
-                <h2 style="text-align: center;">ADD MY PROJECT</h2>
-                <div class="input-project-name">
-                    <label for="input-project-name">Project Name</label>
-                    <input id="input-project-name" type="text">
-                </div>
-                <div class="input-project-date" style="display: flex; flex-wrap: wrap;gap: 95px;">
-                    <label for="startdate">Start Date<input type="date" id="startdate"></label>
-                        
-                   <label for="enddate">End Date<input type="date" id="enddate"></label>
-                       
-                </div>
-                <div>
-                    <label for="input-project-description">Description</label>
-                    <textarea id="input-project-description"></textarea>
-                </div>
-                <div class="input-cekbox" style="display: flex; flex-wrap: wrap; margin-top: 25px;">
-                    <div>
-                        
-                        <input id="nodejs" type="checkbox"/>
-                        <label for="nodejs">Node JS</label>
+            <div class="form-container">
+                <form onsubmit="addProject(event)">
+                    <h2 style="text-align: center;">ADD MY PROJECT</h2>
+                    <div class="input-project-name">
+                        <label for="input-project-name">Project Name</label>
+                        <input id="input-project-name" type="text">
+                    </div>
+                    <div class="input-project-date" style="display: flex; flex-wrap: wrap;gap: 95px;">
+                        <label for="startdate">Start Date<input type="date" id="startdate"></label>
+                            
+                       <label for="enddate">End Date<input type="date" id="enddate"></label>
+                           
                     </div>
                     <div>
-                       
-                        <input id="nextjs" type="checkbox"/>
-                        <label for="nextjs">Next JS</label>
+                        <label for="input-project-description">Description</label>
+                        <textarea id="input-project-description"></textarea>
+                    </div>
+                    <div class="input-cekbox" style="display: flex; flex-wrap: wrap; margin-top: 25px;">
+                        <div>
+                            
+                            <input id="nodejs" type="checkbox"/>
+                            <label for="nodejs">Node JS</label>
+                        </div>
+                        <div>
+                           
+                            <input id="nextjs" type="checkbox"/>
+                            <label for="nextjs">Next JS</label>
+                        </div>
+                        <div>
+                           
+                            <input id="reactjs" type="checkbox"/>
+                            <label for="reactjs">React JS</label>
+                        </div>
+                        <div>
+                           
+                            <input id="vuejs" type="checkbox"/>
+                            <label for="vuejs">Vue JS</label>
+                        </div>
                     </div>
                     <div>
-                       
-                        <input id="reactjs" type="checkbox"/>
-                        <label for="reactjs">React JS</label>
+                        <label>Upload Image</label>
+                        <div class="input-project-image-group" style="background-color: white; margin-top: 5px; box-shadow: 0 0 5px;">
+                            <input type="file" id="input-project-image">
+                            <label class="file-label" for="input-project-image" style="display: flex; align-items: flex-start; justify-content: flex-end;">
+                                <p style="margin: 0;">choose</p>
+                                <img style="width: 30px; height: 30px;" src="images/file(1).png" alt="file">
+                            </label>
+                        </div>
                     </div>
-                    <div>
-                       
-                        <input id="vuejs" type="checkbox"/>
-                        <label for="vuejs">Vue JS</label>
+                    <div class="input-project-button" >
+                        <button>submit</button>
                     </div>
-                </div>
-                <div>
-                    <label>Upload Image</label>
-                    <div class="input-project-image-group" style="background-color: white; margin-top: 5px; box-shadow: 0 0 5px;">
-                        <input type="file" id="input-project-image">
-                        <label class="file-label" for="input-project-image">
-                            <p>choose</p>
-                            <img style="margin-left: 470px;" src="images/file(1).png" alt="file">
-                        </label>
-                    </div>
-                </div>
-                <div class="input-project-button" >
-                    <button>submit</button>
-                </div>
-
-            </form>
+    
+                </form>
+            </div>
+            
         </div>
     </div>
 
@@ -126,15 +142,10 @@
                         <button style="flex: 50%; margin-left: 5px;background-color: black; color: white;">delete</button>
                     </div>
                 </div>
-                
             </div>
-            
-            
-            
         </section>
     </div>
-
-
     <script src="js/project.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

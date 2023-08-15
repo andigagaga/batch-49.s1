@@ -98,15 +98,175 @@ nav ul li a{
 }
 .nav-right{
     display: flex;
-   margin-left: 820px;
+    justify-content: end;
 }
 .nav-right li a{
     display: flex;
     background-color: black;
     color: white;
-    padding: 7px 15px;
+    padding: 4px 4px;
     border-radius: 5px;
 }
 .active{
     color: orangered;
+}
+
+/* BARS MENU */
+.hamburger-nav-container{
+    font-size: 23px;
+    list-style-type: none;
+    display: none;
+}
+.hamburger-nav-container a{
+    text-decoration: none;
+  color: #fff;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #fff;
+  font-weight: bold;
+}
+.hamburger-nav-container .hamburger-active{
+    text-decoration: none;
+    color: #fff;
+    background-color: orangered;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#barsmenu{
+    margin-right: 15px;
+    display: none;
+}
+
+
+
+/* RESPONSIVE LAY OUT */
+
+@media only screen and (max-width: 900px) {
+    body {
+        max-width: 100%;
+    }
+    section {
+        flex-direction: column-reverse;
+        align-items: center; 
+        width: 100%;
+    }
+    .left, .right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .left {
+        order: 2; /* Mengatur posisi "left" di atas "right" */
+    }
+    .right {
+        order: 1; /* Mengatur posisi "right" di bawah "left" */
+    }
+    
+    .card {
+        max-width: 75%;
+    }
+    .card-image {
+        order: 3; /* Mengatur posisi gambar di bawah konten */
+        margin-top: 20px;
+    }
+   
+    .items-collapse{
+        display: none;
+    }
+    .icon-home{
+        margin-left: 10px;
+    }
+    #barsmenu{
+        display: block;
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px;
+    }
+    .nav-left {
+        display: flex;
+        align-items: center;
+    }
+    .nav-right {
+        /* display: none; */
+    }
+    .card {
+        max-width: 75%;
+    }
+    section {
+        width: 100%;
+        align-items: center;
+    }
+    .left, .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .left {
+        order: 2; /* Mengatur posisi "left" di atas "right" */
+    }
+    .right {
+        order: 1; /* Mengatur posisi "right" di bawah "left" */
+    }
+
+    .right div {
+        margin-left: 0;
+    }
+    .items-collapse {
+        display: none;
+    }
+    .hamburger-nav-container {
+        display: none;
+        position: absolute;
+        top: 70px;
+        
+        left: 0;
+        width: 100%;
+        background-color: transparent;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+    .hamburger-nav-container a {
+        display: block;
+        padding: 10px;
+        text-align: center;
+        color: black;
+        text-decoration: none;
+        bottom: 50px;
+        
+    }
+    .hamburger-active {
+        background-color: #f1f1f1;
+    }
+    .card-image {
+        order: 3; /* Mengatur posisi gambar di bawah konten */
+        margin-top: 20px;
+    }
+    #barsmenu{
+        display: block;
+    }
+
+
+
+    /* RESPONSIVE PROJECT */
+
+    
 }

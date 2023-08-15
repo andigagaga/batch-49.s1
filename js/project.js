@@ -21,7 +21,7 @@ function addProject(event) {
 
     // validasi/kondisi start dan end date
     if (end < start) {
-        return alert("Start Dan End Datenya Salah...")
+        return alert("Start Dan End Datenya Salah Tidak Di Ketahui")
     }
     
     let timeDistance = end - start;
@@ -43,17 +43,17 @@ function addProject(event) {
     }
     
 
-    // variabel untuk data iconnya
-    const nodeJs =  '<i class="fa-brands fa-node-js"></i>';
-    const java =   '<i class="fa-brands fa-square-js"></i>';
-    const react = '<i class="fa-brands fa-react"></i>';
-    const vue = '<i class="fa-brands fa-vuejs"></i>';
+    // 
+    const nodeJs = `<i class="fa-brands fa-node-js"></i>`;
+    const nextJs = `<i class="fa-brands fa-square-js"></i>`;
+    const reactJs = `<i class="fa-brands fa-react"></i>`;
+    const vueJs = `<i class="fa-brands fa-vuejs"></i>`
 
-    // untuk dapatkan value nya
-    let cbnode = document.getElementById("nodejs").checked ? nodeJs : "";
-    let cbjava = document.getElementById("nextjs").checked ? java : "";
-    let cbreact = document.getElementById("reactjs").checked ? react : "";
-    let cbvue = document.getElementById("vuejs").checked ? vue : "";
+    // untuk element html nya
+    let cbNode = document.getElementById("nodejs").checked ? nodeJs : "";
+    let cbNext = document.getElementById("nextjs").checked ? nextJs : "";
+    let cbReact = document.getElementById("reactjs").checked ? reactJs : "";
+    let cbVue = document.getElementById("vuejs").checked ? vueJs : "";
 
     // untuk url dari imagenya
      image = URL.createObjectURL(image[0]);
@@ -63,11 +63,11 @@ function addProject(event) {
     let objectProject = {
         title,
         distance,
-        cbnode,
-        cbjava,
-        cbreact,
-        cbvue,
         description,
+        cbNode,
+        cbNext,
+        cbReact,
+        cbVue,
         image,
         postAt: new Date(),
     }
@@ -100,10 +100,10 @@ function renderProject() {
                         <p style="text-align: justify;">${dataProject[index].description}</p>
                     </div>
                     <div class="project-icon">
-                       ${dataProject[index].cbnode}
-                       ${dataProject[index].cbjava}
-                       ${dataProject[index].cbreact}
-                       ${dataProject[index].cbvue}
+                    ${dataProject[index].cbNode}
+                    ${dataProject[index].cbNext}
+                    ${dataProject[index].cbReact}
+                    ${dataProject[index].cbVue}
                     </div>
                     <div class="project-button">
                         <button style="flex: 50%; background-color: black; color: white;">edit</button>
@@ -131,3 +131,8 @@ function getFullTime(time) {
       return `${tanggal} ${bulan[indexBulan]}  ${tahun} ${jam}:${minutes} WIB`;
     //   console.log(time);
  }
+
+ function newFunction(parameter1 , parameter2) {
+    return 
+ }
+ newFunction(argumen1,argumen2);

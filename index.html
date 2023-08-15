@@ -11,38 +11,49 @@
 </head>
 <body>
 
-    <nav>
-        <ul>
-            <div class="nav-left">
+    <nav style="display: flex; justify-content: space-between;">
+        <div class="nav-left">
+            <ul>
                 <li>
                     <a href="">
                         <img src="images/logo_navbar.png" alt="logo-nav" style="width: 40px;"/>
                     </a>
                 </li>
-                <li>
+                <li class="items-collapse">
                     <a class="active" href="index.html">Home</a>
                 </li>
-                <li>
+                <li class="items-collapse">
                     <a href="project.html">My Project</a>
                 </li>
-            </div>
-            <div class="nav-right">
-                <li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li class="items-collapse">
                     <a href="contact.html">Contact Me</a>
                 </li>
-            </div>
-           
-        </ul>
+                <div id="barsmenu">
+                    <button style="background-color: transparent; border: none;" onclick="openHamburger()">
+                        <i class=" fa-2x fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </ul>
+        </div>
     </nav>
+
+    <div class="hamburger-nav-container" id="hamburger-nav-container">
+        <a class="hamburger-active" href="index.html">Home</a>
+        <a href="project.html">My Project</a>
+        <a href="contact.html">Contact Me</a>
+    </div>
+    
     <div class="card">
         <section style="display: flex;">
             <div class="left">
-                <div>
-                    <h2 class="judul-home">HY SAYA ITU IALAH SAYA</h2>
-                    <p class="paragraf-home">Halo,
-                        Saya GUSWANDI, seorang developer fullstack yang penuh dedikasi dengan kecintaan mendalam dalam menciptakan pengalaman digital yang mulus. Mulai dari merancang antarmuka pengguna frontend yang menarik hingga membangun sistem backend yang tangguh untuk menghidupkan aplikasi.</p>
-                        <p>Dan Saya Mengucapkan bahwa pernyataan Di Atas Adalah Boongan</p>
-                </div>
+                <!-- Isi dari kelas left -->
+                <h2 class="judul-home">HY SAYA ITU IALAH SAYA</h2>
+                <p class="paragraf-home">Halo,
+                    Saya GUSWANDI, seorang developer fullstack yang penuh dedikasi dengan kecintaan mendalam dalam menciptakan pengalaman digital yang mulus. Mulai dari merancang antarmuka pengguna frontend yang menarik hingga membangun sistem backend yang tangguh untuk menghidupkan aplikasi.</p>
                 <div class="button-home">
                     <a href="contact.html">
                         <button class="button-contact-home">Contact</button>
@@ -58,15 +69,14 @@
             </div>
             <div class="right">
                 <div class="card-image">
+                    <!-- Isi dari kelas right -->
                     <img style="width: 100%; height: 350px; object-fit: cover; border-radius: 8px;" src="images/imageshome.jpg" alt="foto bayi emang">
                     <h3 style="text-align: center; margin-top: 5px;">Guswandi</h3>
                     <p style="text-align: center; margin-top: 5px;">FULL STACK GA FULL"</p>
                 </div>
-                
             </div>
         </section>
-       
     </div>
-    
+    <script src="js/index.js"></script>
 </body>
 </html>

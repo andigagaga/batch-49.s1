@@ -1,42 +1,92 @@
 .div-contact-me {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     margin-top: 100px;
     margin-bottom: 50px;
+    margin-left: 0;
+    margin-right: 0;
 }
-form{
+
+form {
     width: 600px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0
+    ;
 }
 
 form div {
     margin-top: 30px;
 }
-input, select, textarea {
-    width: 97%;
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
     margin-top: 8px;
     border-radius: 8px;
     border: 1px solid grey;
     box-shadow: 0 0 15px;
     padding: 10px;
     resize: none;
-
 }
 
-.button-contact{
+.input-subject select {
+    width: 103%;
+}
+
+.button-contact {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: 15px;
 }
-button{
+
+button {
     border-radius: 5px;
     padding: 6px 25px;
     background-color: black;
     border: none;
     color: white;
+    cursor: pointer;
 }
-button:hover{
+#barsmenu button{
+    color: black;
+}
+
+button:hover {
     background-color: orangered;
 }
-label{
+
+label {
     font-weight: bold;
+}
+
+#barsmenu{
+    display: none;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .div-contact-me form {
+        width: 90%;
+    }
+    .input-subject select {
+        width: 104%;
+        box-sizing: border-box; /* Agar padding tidak mempengaruhi lebar */
+    }
+    #barsmenu{
+        display: block;
+    }
+}
+@media only screen and (max-width: 550px) {
+    /* Gaya untuk input subjek pada layar kecil */
+    .input-subject label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    #barsmenu{
+        display: block;
+    }
 }
