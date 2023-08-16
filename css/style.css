@@ -230,6 +230,9 @@ nav ul li a{
     .right div {
         margin-left: 0;
     }
+    .right .card-image{
+        width: 80%;
+    }
     .items-collapse {
         display: none;
     }

@@ -71,9 +71,10 @@ label {
 @media only screen and (max-width: 900px) {
     .div-contact-me form {
         width: 90%;
+        margin-right: 22px;
     }
     .input-subject select {
-        width: 104%;
+        width: 103%;
         box-sizing: border-box; /* Agar padding tidak mempengaruhi lebar */
     }
     #barsmenu{
