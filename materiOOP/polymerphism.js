@@ -1,0 +1,3 @@
+class sopir {
+    drive()
+}

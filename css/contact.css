@@ -71,7 +71,8 @@ label {
 @media only screen and (max-width: 900px) {
     .div-contact-me form {
         width: 90%;
-        margin-right: 22px;
+        margin-right: 50px;
+        margin-left: 40px;
     }
     .input-subject select {
         width: 103%;

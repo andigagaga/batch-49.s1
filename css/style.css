@@ -136,7 +136,7 @@ nav ul li a{
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border: 1px solid #fff;
+    border: 1px solid ;
     font-weight: bold;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -186,6 +186,9 @@ nav ul li a{
     .icon-home{
         margin-left: 10px;
     }
+    .hamburger-nav-container a{
+        color: black;
+    }
     #barsmenu{
         display: block;
     }
@@ -204,9 +207,7 @@ nav ul li a{
         display: flex;
         align-items: center;
     }
-    .nav-right {
-        /* display: none; */
-    }
+   
     .card {
         max-width: 75%;
     }
@@ -236,29 +237,6 @@ nav ul li a{
     .items-collapse {
         display: none;
     }
-    .hamburger-nav-container {
-        display: none;
-        position: absolute;
-        top: 70px;
-        
-        left: 0;
-        width: 100%;
-        background-color: transparent;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        z-index: 999;
-    }
-    .hamburger-nav-container a {
-        display: block;
-        padding: 10px;
-        text-align: center;
-        color: black;
-        text-decoration: none;
-        bottom: 50px;
-        
-    }
-    .hamburger-active {
-        background-color: #f1f1f1;
-    }
     .card-image {
         order: 3; /* Mengatur posisi gambar di bawah konten */
         margin-top: 20px;
@@ -266,10 +244,4 @@ nav ul li a{
     #barsmenu{
         display: block;
     }
-
-
-
-    /* RESPONSIVE PROJECT */
-
-    
 }

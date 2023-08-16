@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials</title>
+    <link rel="stylesheet" href="css/testimonials.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <nav style="display: flex; justify-content: space-between;">
+        <div class="nav-left">
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="images/logo_navbar.png" alt="logo-nav" style="width: 40px;"/>
+                    </a>
+                </li>
+                <li class="items-collapse">
+                    <a  href="index.html">Home</a>
+                </li>
+                <li class="items-collapse">
+                    <a href="project.html">My Project</a>
+                </li>
+                <li class="items-collapse">
+                    <a class="active" href="testimonials.html">My Testimonial</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li class="items-collapse">
+                    <a href="contact.html">Contact Me</a>
+                </li>
+                <div id="barsmenu">
+                    <button style="background-color: transparent; border: none;" onclick="openHamburger()">
+                        <i class=" fa-2x fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hamburger-nav-container" id="hamburger-nav-container">
+        <a class="hamburger-link" href="index.html">Home</a>
+        <a class="hamburger-link" href="project.html">My Project</a>
+        <a class="hamburger-link  hamburger-active" href="testimonials.html">My Testimonial</a>
+        <a class="hamburger-link hamburger-contact" href="contact.html">Contact Me</a>
+    </div>
+
+    <div class="testimonials-container">
+        <h1>My Testimonial</h1>
+        <div class="testimonials" id="testimonials">
+           
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script src="js/testimonial.js"></script>
+</body>
+</html>

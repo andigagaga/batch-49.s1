@@ -183,7 +183,7 @@ section{
         justify-content: center;
     }
     .project-form .form-container {
-        width: 90%;
+        width: 95%;
     }
     #barsmenu{
         display: block;
@@ -192,7 +192,7 @@ section{
 
 @media only screen and (max-width: 550px) {
     .project-form .form-container {
-        width: 90%;
+        width: 100%;
     }
     form div {
         width: 100%;
