@@ -1,22 +1,21 @@
 .div-contact-me {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-    margin-bottom: 50px;
-    margin-left: 0;
-    margin-right: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 form {
-    width: 600px;
-    max-width: 100%;
-    margin: 0;
-    padding: 0
-    ;
+  width: 600px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 form div {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 input[type="text"],
@@ -24,71 +23,70 @@ input[type="email"],
 input[type="number"],
 textarea,
 select {
-    width: 100%;
-    margin-top: 8px;
-    border-radius: 8px;
-    border: 1px solid grey;
-    box-shadow: 0 0 15px;
-    padding: 10px;
-    resize: none;
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid grey;
+  box-shadow: 0 0 7px;
+  padding: 10px;
+  resize: none;
 }
 
 .input-subject select {
-    width: 103%;
+  width: 103%;
 }
 
 .button-contact {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
 }
 
 button {
-    border-radius: 5px;
-    padding: 6px 25px;
-    background-color: black;
-    border: none;
-    color: white;
-    cursor: pointer;
+  border-radius: 5px;
+  padding: 6px 25px;
+  background-color: black;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
-#barsmenu button{
-    color: black;
+#barsmenu button {
+  color: black;
 }
 
 button:hover {
-    background-color: orangered;
+  background-color: orangered;
 }
 
 label {
-    font-weight: bold;
+  font-weight: bold;
 }
 
-#barsmenu{
-    display: none;
+#barsmenu {
+  display: none;
 }
-
 
 @media only screen and (max-width: 900px) {
-    .div-contact-me form {
-        width: 90%;
-        margin-right: 50px;
-        margin-left: 40px;
-    }
-    .input-subject select {
-        width: 103%;
-        box-sizing: border-box; /* Agar padding tidak mempengaruhi lebar */
-    }
-    #barsmenu{
-        display: block;
-    }
+  .div-contact-me form {
+    width: 90%;
+    margin-right: 50px;
+    margin-left: 40px;
+  }
+  .input-subject select {
+    width: 103%;
+    box-sizing: border-box; /* Agar padding tidak mempengaruhi lebar */
+  }
+  #barsmenu {
+    display: block;
+  }
 }
 @media only screen and (max-width: 550px) {
-    /* Gaya untuk input subjek pada layar kecil */
-    .input-subject label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    #barsmenu{
-        display: block;
-    }
+  /* Gaya untuk input subjek pada layar kecil */
+  .input-subject label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  #barsmenu {
+    display: block;
+  }
 }

@@ -1,133 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Detail</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/project.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/project.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<body>
-    <nav style="display: flex; justify-content: space-between;">
-        <div class="nav-left">
-            <ul>
-                <li>
-                    <a href="">
-                        <img src="images/logo_navbar.png" alt="logo-nav" style="width: 40px;"/>
-                    </a>
-                </li>
-                <li class="items-collapse">
-                    <a  href="index.html">Home</a>
-                </li>
-                <li class="items-collapse">
-                    <a href="project.html">My Project</a>
-                </li>
-                <li class="items-collapse">
-                    <a href="testimonials.html">My Testimonial</a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-right">
-            <ul>
-                <li class="items-collapse">
-                    <a href="contact.html">Contact Me</a>
-                </li>
-                <div id="barsmenu">
-                    <button style="background-color: transparent; border: none;" onclick="openHamburger()">
-                        <i class=" fa-2x fa-solid fa-bars"></i>
-                    </button>
-                </div>
-            </ul>
-        </div>
+  <body>
+    <nav style="display: flex; justify-content: space-between">
+      <div class="nav-left">
+        <ul>
+          <li>
+            <a href="">
+              <img
+                src="images/logo_navbar.png"
+                alt="logo-nav"
+                style="width: 40px"
+              />
+            </a>
+          </li>
+          <li class="items-collapse">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="items-collapse">
+            <a href="project.html">My Project</a>
+          </li>
+          <li class="items-collapse">
+            <a href="testimonials.html">My Testimonial</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li class="items-collapse">
+            <a href="contact.html">Contact Me</a>
+          </li>
+          <div id="barsmenu">
+            <button
+              style="background-color: transparent; border: none"
+              onclick="openHamburger()"
+            >
+              <i class="fa-2x fa-solid fa-bars"></i>
+            </button>
+          </div>
+        </ul>
+      </div>
     </nav>
 
     <div class="hamburger-nav-container" id="hamburger-nav-container">
-        <a class="hamburger-link " href="index.html">Home</a>
-        <a class="hamburger-link " href="project.html">My Project</a>
-        <a class="hamburger-link" href="testimonials.html">My Testimonial</a>
-        <a class="hamburger-link hamburger-contact " href="contact.html">Contact Me</a>
+      <a class="hamburger-link" href="index.html">Home</a>
+      <a class="hamburger-link" href="project.html">My Project</a>
+      <a class="hamburger-link" href="testimonials.html">My Testimonial</a>
+      <a
+        class="hamburger-link hamburger-contact"
+        style="background-color: black; color: white"
+        href="contact.html"
+        >Contact Me</a
+      >
     </div>
-
-    
 
     <div class="card-project-detail">
-        <div style="padding: 50px;">
-            <div style="display: flex; justify-content: center;">
-                <h1>Dumbways Web Project</h1>
-            </div>
-            <div style="margin-top: 50px;">
-                <div style="display: flex; flex-wrap: wrap; gap: 150px
-                ;">
-                    <img style="width: 550px; border-radius: 5px;" src="images/anak.png" />
-                    <div>
-                        <div style="width: 100%; display: flex; flex-direction: column;gap: 10px
-                        ;">
-                            <h4>Duration</h4>
-                            <i class="fa-solid fa-calendar-days"> 12 Jan 2023 - 12 Feb 2023</i>
-                            <i class="fa-regular fa-clock"> 1 Month</i>
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 80px;">
-                            <h4 style="margin-bottom: 0%;">Technologies</h4>
-                            <div style="display: flex; justify-content: space-between;">
-                                <ul style="list-style: none; padding: 0; flex: 1;">
-                                    <li style="display: flex; align-items: center; gap: 10px;">
-                                        <i class="fa-brands fa-react"></i>
-                                        <span>React Js</span>
-                                    </li>
-                                    <li style="display: flex; align-items: center; gap: 10px;">
-                                        <i class="fa-brands fa-node-js"></i>
-                                        <span>Node Js</span>
-                                    </li>
-
-                                </ul>
-                                <ul style="list-style: none; padding: 0; flex: 1;">
-
-                                    <li style="display: flex; align-items: center; gap: 10px;">
-                                        <i class="fa-brands fa-js"></i>
-                                        <span>Java Script</span>
-                                    </li>
-                                    <li style="display: flex; align-items: center; gap: 10px;">
-                                        <i class="fa-brands fa-ioxhost"></i>
-                                        <span>Socket IO</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                <P>
-                    Mungkin Anda sering mendengar istilah Konoha di media sosial atau televisi. Istilah itu pun sering
-                    kali menjadi trending di Twitter. Dalam hal lain, banyak yang menggunakan kata Konoha untuk
-                    menyebutkan Negara Indonesia atau mengomentari kelakukan aneh warga kita sampai sekarang. Lantas,
-                    apa kaitannya Konoha dengan Indonesia?.
-                    Konoha merupakan sebuah desa fiksi di serial anime Naruto Shippuden yang disebut mirip dengan
-                    Indonesia. Hal tersebut disebabkan karena banyaknya kemiripan yang dimiliki oleh dua negara ini.
-                    Mulai dari masyarakatnya yang beragam hingga kesamaan jumlah pemimpinnya. Inilah yang kemudian
-                    membuat banyak warganet setuju menyebut Indonesia sebagai Negara Konoha.
-                    Salah satu alasan kenapa Indonesia disebut Negara Konoha adalah karena kesamaan dalam sisi pemimpin
-                    negaranya. Dalam serial Naruto, Konoha memiliki 7 orang pemimpin yang disebut Hokage (pemimpin
-                    Konoha). Hal itu pun kemudian dikaitkan dengan beberapa presiden yang memimpin Indonesia.
-                    Presiden Pertama Indonesia, Soekarno, disebut mirip dengan Hokage pertama Konoha yaitu Hashirama.
-                    Kedua sama-sama pendiri negara dan memiliki sifat yang tegas. Kemudian Soeharto, sebagai presiden
-                    kedua, dinilai memiliki kemiripan dengan Tobirama Senju, Hokage kedua Konoha. Hal ini karena
-                    keduanya telah membantu pemimpin pertama dalam membentuk negara.
-                    Selain itu, Indonesia dan Konoha sama-sama pernah dipimpin oleh orang yang memiliki kecerdasan di atas rata-rata. Mereka adalah B.J Habibie dan Hiruzen Sarutobi. Sementara itu, K.H Abdurrahman Wahid atau Gus Dur memiliki kesamaan dengan Minato Namikaze karena melepaskan jabatannya demi menjaga perdamaian negara masing-masing.
-                </P>
-
-            </div>
-
+      <div style="padding: 50px">
+        <div style="display: flex; justify-content: center">
+          <h1>Dumbways Web Project</h1>
         </div>
-
+        <div style="margin-top: 50px">
+          <div style="display: flex; flex-wrap: wrap; gap: 150px">
+            <img
+              style="width: 550px; border-radius: 5px"
+              src="images/anak.png"
+            />
+            <div>
+              <div
+                style="
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+                "
+              >
+                <h4>Duration</h4>
+                <i class="fa-solid fa-calendar-days">
+                  12 Jan 2023 - 12 Feb 2023</i
+                >
+                <i class="fa-regular fa-clock"> 1 Month</i>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 15px;
+                  margin-top: 80px;
+                "
+              >
+                <h4 style="margin-bottom: 0%">Technologies</h4>
+                <div style="display: flex; justify-content: space-between">
+                  <ul style="list-style: none; padding: 0; flex: 1">
+                    <li style="display: flex; align-items: center; gap: 10px">
+                      <i class="fa-brands fa-react"></i>
+                      <span>React Js</span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px">
+                      <i class="fa-brands fa-node-js"></i>
+                      <span>Node Js</span>
+                    </li>
+                  </ul>
+                  <ul style="list-style: none; padding: 0; flex: 1">
+                    <li style="display: flex; align-items: center; gap: 10px">
+                      <i class="fa-brands fa-js"></i>
+                      <span>Java Script</span>
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 10px">
+                      <i class="fa-brands fa-ioxhost"></i>
+                      <span>Socket IO</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>
+            Mungkin Anda sering mendengar istilah Konoha di media sosial atau
+            televisi. Istilah itu pun sering kali menjadi trending di Twitter.
+            Dalam hal lain, banyak yang menggunakan kata Konoha untuk
+            menyebutkan Negara Indonesia atau mengomentari kelakukan aneh warga
+            kita sampai sekarang. Lantas, apa kaitannya Konoha dengan
+            Indonesia?. Konoha merupakan sebuah desa fiksi di serial anime
+            Naruto Shippuden yang disebut mirip dengan Indonesia. Hal tersebut
+            disebabkan karena banyaknya kemiripan yang dimiliki oleh dua negara
+            ini. Mulai dari masyarakatnya yang beragam hingga kesamaan jumlah
+            pemimpinnya. Inilah yang kemudian membuat banyak warganet setuju
+            menyebut Indonesia sebagai Negara Konoha. Salah satu alasan kenapa
+            Indonesia disebut Negara Konoha adalah karena kesamaan dalam sisi
+            pemimpin negaranya. Dalam serial Naruto, Konoha memiliki 7 orang
+            pemimpin yang disebut Hokage (pemimpin Konoha). Hal itu pun kemudian
+            dikaitkan dengan beberapa presiden yang memimpin Indonesia. Presiden
+            Pertama Indonesia, Soekarno, disebut mirip dengan Hokage pertama
+            Konoha yaitu Hashirama. Kedua sama-sama pendiri negara dan memiliki
+            sifat yang tegas. Kemudian Soeharto, sebagai presiden kedua, dinilai
+            memiliki kemiripan dengan Tobirama Senju, Hokage kedua Konoha. Hal
+            ini karena keduanya telah membantu pemimpin pertama dalam membentuk
+            negara. Selain itu, Indonesia dan Konoha sama-sama pernah dipimpin
+            oleh orang yang memiliki kecerdasan di atas rata-rata. Mereka adalah
+            B.J Habibie dan Hiruzen Sarutobi. Sementara itu, K.H Abdurrahman
+            Wahid atau Gus Dur memiliki kesamaan dengan Minato Namikaze karena
+            melepaskan jabatannya demi menjaga perdamaian negara masing-masing.
+          </p>
+        </div>
+      </div>
     </div>
     <script src="js/project.js"></script>
-
-</body>
-
+  </body>
 </html>

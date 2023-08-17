@@ -1,2 +1,1 @@
-return = mengembalikan sebuah commen
-jangan lupa taktik
+return = mengembalikan sebuah commen/nilai/value

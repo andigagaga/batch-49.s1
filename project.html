@@ -1,155 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/project.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-    
-    <nav style="display: flex; justify-content: space-between;">
-        <div class="nav-left">
-            <ul>
-                <li>
-                    <a href="">
-                        <img src="images/logo_navbar.png" alt="logo-nav" style="width: 40px;"/>
-                    </a>
-                </li>
-                <li class="items-collapse">
-                    <a href="index.html">Home</a>
-                </li>
-                <li class="items-collapse">
-                    <a class="active"  href="project.html">My Project</a>
-                </li>
-                <li class="items-collapse">
-                    <a href="testimonials.html">My Testimonial</a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-right">
-            <ul>
-                <li class="items-collapse">
-                    <a href="contact.html">Contact Me</a>
-                </li>
-                <div id="barsmenu">
-                    <button style="background-color: transparent; border: none;" onclick="openHamburger()">
-                        <i class=" fa-2x fa-solid fa-bars"></i>
-                    </button>
-                </div>
-            </ul>
-        </div>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/project.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav style="display: flex; justify-content: space-between">
+      <div class="nav-left">
+        <ul>
+          <li>
+            <a href="">
+              <img
+                src="images/logo_navbar.png"
+                alt="logo-nav"
+                style="width: 40px"
+              />
+            </a>
+          </li>
+          <li class="items-collapse">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="items-collapse">
+            <a class="active" href="project.html">My Project</a>
+          </li>
+          <li class="items-collapse">
+            <a href="testimonials.html">My Testimonial</a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <ul>
+          <li class="items-collapse">
+            <a href="contact.html">Contact Me</a>
+          </li>
+          <div id="barsmenu">
+            <button
+              style="background-color: transparent; border: none"
+              onclick="openHamburger()"
+            >
+              <i class="fa-2x fa-solid fa-bars"></i>
+            </button>
+          </div>
+        </ul>
+      </div>
     </nav>
 
     <div class="hamburger-nav-container" id="hamburger-nav-container">
-        <a class="hamburger-link " href="index.html">Home</a>
-        <a class="hamburger-link hamburger-active" href="project.html">My Project</a>
-        <a class="hamburger-link" href="testimonials.html">My Testimonial</a>
-        <a class="hamburger-link hamburger-contact " href="contact.html">Contact Me</a>
+      <a class="hamburger-link" href="index.html">Home</a>
+      <a class="hamburger-link hamburger-active" href="project.html"
+        >My Project</a
+      >
+      <a class="hamburger-link" href="testimonials.html">My Testimonial</a>
+      <a
+        class="hamburger-link hamburger-contact"
+        style="background-color: black; color: white"
+        href="contact.html"
+        >Contact Me</a
+      >
     </div>
 
     <!-- FORM PROJECT -->
     <div class="project">
-        <div class="project-form" style="display: flex; justify-content: center; margin-top: 50px;">
-            <div class="form-container">
-                <form onsubmit="addProject(event)">
-                    <h2 style="text-align: center;">ADD MY PROJECT</h2>
-                    <div class="input-project-name">
-                        <label for="input-project-name">Project Name</label>
-                        <input id="input-project-name" type="text">
-                    </div>
-                    <div class="input-project-date" style="display: flex; flex-wrap: wrap;gap: 95px;">
-                        <label for="startdate">Start Date<input type="date" id="startdate"></label>
-                            
-                       <label for="enddate">End Date<input type="date" id="enddate"></label>
-                           
-                    </div>
-                    <div>
-                        <label for="input-project-description">Description</label>
-                        <textarea id="input-project-description"></textarea>
-                    </div>
-                    <div class="input-cekbox" style="display: flex; flex-wrap: wrap; margin-top: 25px;">
-                        <div>
-                            
-                            <input id="nodejs" type="checkbox"/>
-                            <label for="nodejs">Node JS</label>
-                        </div>
-                        <div>
-                           
-                            <input id="nextjs" type="checkbox"/>
-                            <label for="nextjs">Next JS</label>
-                        </div>
-                        <div>
-                           
-                            <input id="reactjs" type="checkbox"/>
-                            <label for="reactjs">React JS</label>
-                        </div>
-                        <div>
-                           
-                            <input id="vuejs" type="checkbox"/>
-                            <label for="vuejs">Vue JS</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label>Upload Gambar</label>
-                        <div class="input-project-image-group" style="background-color: white; margin-top: 5px; box-shadow: 0 0 5px;">
-                            <input type="file" id="input-project-image">
-                            <label class="file-label" for="input-project-image" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                                <p >choose</p>
-                                <img style="width: 30px; height: 30px;" src="images/file(1).png" alt="file">
-                            </label>
-                        </div>
-                    </div>                    
-                    <div class="input-project-button" >
-                        <button>submit</button>
-                    </div>
-    
-                </form>
+      <div
+        class="project-form"
+        style="display: flex; justify-content: center; margin-top: 50px"
+      >
+        <div class="form-container">
+          <form onsubmit="addProject(event)">
+            <h2 style="text-align: center">ADD MY PROJECT</h2>
+            <div class="input-project-name">
+              <label for="input-project-name">Project Name</label>
+              <input id="input-project-name" type="text" />
             </div>
-            
+            <div
+              class="input-project-date"
+              style="display: flex; flex-wrap: wrap; gap: 95px"
+            >
+              <label for="startdate"
+                >Start Date<input type="date" id="startdate"
+              /></label>
+
+              <label for="enddate"
+                >End Date<input type="date" id="enddate"
+              /></label>
+            </div>
+            <div>
+              <label for="input-project-description">Description</label>
+              <textarea id="input-project-description"></textarea>
+            </div>
+            <div
+              class="input-cekbox"
+              style="display: flex; flex-wrap: wrap; margin-top: 25px"
+            >
+              <div>
+                <input id="nodejs" type="checkbox" />
+                <label for="nodejs">Node JS</label>
+              </div>
+              <div>
+                <input id="nextjs" type="checkbox" />
+                <label for="nextjs">Next JS</label>
+              </div>
+              <div>
+                <input id="reactjs" type="checkbox" />
+                <label for="reactjs">React JS</label>
+              </div>
+              <div>
+                <input id="vuejs" type="checkbox" />
+                <label for="vuejs">Vue JS</label>
+              </div>
+            </div>
+            <div>
+              <label>Upload Gambar</label>
+              <div
+                class="input-project-image-group"
+                style="
+                  background-color: white;
+                  margin-top: 5px;
+                  box-shadow: 0 0 5px;
+                "
+              >
+                <input type="file" id="input-project-image" />
+                <label
+                  class="file-label"
+                  for="input-project-image"
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                  "
+                >
+                  <p>choose</p>
+                  <img
+                    style="width: 30px; height: 30px"
+                    src="images/file(1).png"
+                    alt="file"
+                  />
+                </label>
+              </div>
+            </div>
+            <div class="input-project-button">
+              <button>submit</button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
 
     <!-- LIST PROJECT -->
-    <hr>
+    <hr />
     <div>
-        <section>
-            <div class="list-project-judul">
-                <h1>MY PROJECT</h1>
+      <section>
+        <div class="list-project-judul">
+          <h1>MY PROJECT</h1>
+        </div>
+        <div class="list-project-container" id="mockup">
+          <div class="card-project">
+            <div class="project-image">
+              <img src="images/anak.png" />
             </div>
-            <div class="list-project-container" id="mockup">
-                <div class="card-project">
-                    <div class="project-image">
-                        <img src="images/anak.png">
-                    </div>
-                    <div class="project-desc">
-                        <a href="projectdetail.html" style="text-decoration: none;">
-                            <h1 class="project-title">Dumbways Web Project</h1>
-                        </a>
-                        
-                        <h6 style="margin-top: 0%; margin-bottom: 0%;">01-08-2003</h6>
-                        <p>durasi : 3 bulan</p>
-                        <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga ad fugiat vero in sit repudiandae ullam. Nobis, harum nemo.</p>
-                    </div>
-                    <div class="project-icon">
-                       <i class="fa-brands fa-node-js"></i>
-                       <i class="fa-brands fa-square-js"></i>
-                       <i class="fa-brands fa-react"></i>
-                       <i class="fa-brands fa-vuejs"></i>
-                    </div>
-                    <div class="project-button">
-                        <button style="flex: 50%; background-color: black; color: white;">edit</button>
-                        <button style="flex: 50%; margin-left: 5px;background-color: black; color: white;">delete</button>
-                    </div>
-                </div>
+            <div class="project-desc">
+              <a href="projectdetail.html" style="text-decoration: none">
+                <h1 class="project-title">Dumbways Web Project</h1>
+              </a>
+
+              <h6 style="margin-top: 0%; margin-bottom: 0%">01-08-2003</h6>
+              <p>durasi : 3 bulan</p>
+              <p style="text-align: justify">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                fuga ad fugiat vero in sit repudiandae ullam. Nobis, harum nemo.
+              </p>
             </div>
-        </section>
+            <div class="project-icon">
+              <i class="fa-brands fa-node-js"></i>
+              <i class="fa-brands fa-square-js"></i>
+              <i class="fa-brands fa-react"></i>
+              <i class="fa-brands fa-vuejs"></i>
+            </div>
+            <div class="project-button">
+              <button style="flex: 50%; background-color: black; color: white">
+                edit
+              </button>
+              <button
+                style="
+                  flex: 50%;
+                  margin-left: 5px;
+                  background-color: black;
+                  color: white;
+                "
+              >
+                delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <script src="js/project.js"></script>
     <script src="js/index.js"></script>
-</body>
+  </body>
 </html>
