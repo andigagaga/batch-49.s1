@@ -20,9 +20,6 @@
   height: 330px;
   background-color: white;
   padding: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   box-shadow: 0 0 5px;
 }
 .testimonials-container .testimonials .testimonial img {
@@ -35,6 +32,38 @@
   display: flex;
   justify-content: end;
   margin-right: 5px;
+  color: black;
+  font-weight: bold;
+  color: black;
+}
+
+.rating-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rating-container .rating-button{
+  background-color: black;
+  margin: 10px 0;
+  padding: 0 20px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 3px;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right:15px;
+}
+.rating-container .rating-button:hover{
+  background-color: orangered;
+  color: white;
+  font-size: 14px;
+}
+.rating-button-container .active{
+  color: orangered;
 }
 
 @media only screen and (max-width: 900px) {
@@ -47,14 +76,15 @@
 }
 
 @media only screen and (max-width: 550px) {
-  .project-form .form-container {
+
+  .testimonials-container{
     width: 100%;
   }
-  form div {
+  .rating-container .rating-button-container{
     width: 100%;
-  }
-  form .input-project-date input {
-    width: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   #barsmenu {
     display: block;

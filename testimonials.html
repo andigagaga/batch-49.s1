@@ -70,12 +70,43 @@
     </div>
 
     <div class="testimonials-container">
-      <h1>My Testimonial</h1>
-      <div class="testimonials" id="testimonials"></div>
+      <h1>My Testimonials</h1>
+      <div class="rating-container">
+        <h2>Rating By Stars</h2>
+        <div class="rating-button-container">
+          <button class="rating-button active" onclick="semuaTestimonial()">
+            All
+          </button>
+          <button class="rating-button" onclick="filteredTestimonials(1)">
+            1<i class="fa-regular fa-star"></i>
+          </button>
+          <button class="rating-button" onclick="filteredTestimonials(2)">
+            2<i class="fa-regular fa-star"></i>
+          </button>
+          <button class="rating-button" onclick="filteredTestimonials(3)">
+            3<i class="fa-regular fa-star"></i>
+          </button>
+          <button class="rating-button" onclick="filteredTestimonials(4)">
+            4<i class="fa-regular fa-star"></i>
+          </button>
+          <button class="rating-button" onclick="filteredTestimonials(5)">
+            5<i class="fa-regular fa-star"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="testimonials" id="testimonials">
+        <!-- <div class="testimonial">
+          <img src="images/anak.png" alt="testimonials.profil" />
+          <p class="description">wahahahha</p>
+          <p class="author">- guswandi</p>
+          <h4 class="author">rating</h4>
+        </div> -->
+      </div>
     </div>
 
     <script src="js/index.js"></script>
     <script src="js/testimonial.js"></script>
-    <script src="materi8/customhof.js"></script>
+    <!-- <script src="materi8/customhof.js"></script> -->
   </body>
 </html>
