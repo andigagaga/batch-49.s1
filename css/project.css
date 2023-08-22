@@ -194,7 +194,8 @@ section {
     width: 100%;
   }
   form .input-project-date input {
-    width: 120%;
+    width: 140%;
+    margin-left: 6px;
   }
   #barsmenu {
     display: block;

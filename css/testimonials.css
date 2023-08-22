@@ -55,12 +55,13 @@
   border: none;
   font-weight: bold;
   cursor: pointer;
-  margin-right:15px;
+  margin-right:8px;
 }
 .rating-container .rating-button:hover{
-  background-color: orangered;
-  color: white;
-  font-size: 14px;
+  background-color: white;
+  color: gold;
+  font-weight: bold;
+  /* font-size: 14px; */
 }
 .rating-button-container .active{
   color: orangered;
@@ -80,8 +81,8 @@
   .testimonials-container{
     width: 100%;
   }
-  .rating-container .rating-button-container{
-    width: 100%;
+  .rating-container .rating-button-container button{
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -137,7 +137,7 @@ const testimonialData = [
   },
   {
     author: "GUSWANDI",
-    quote: "PINJAM DULU SERATUS",
+    quote: "YAUDAHH BOWLEHHH",
     image:
       "https://images.unsplash.com/photo-1690899222146-2425202396e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
     rating: 5,
@@ -178,9 +178,14 @@ function filteredTestimonials(rating) {
       <img src="${item.image}" alt="testimonials.profil" />
       <p class="description">${item.quote}</p>
       <p class="author">- ${item.author}</p>
-      <h4 class="author">${item.rating}</h4>
+      <h4 class="author">${item.rating} <i class="fa-solid fa-star"></i></h4>
+      
     </div>`;
     });
   }
   document.getElementById("testimonials").innerHTML = testimonialHTML;
 }
+
+
+
+// https://api.npoint.io/3cdfd7c188e19df1c183
