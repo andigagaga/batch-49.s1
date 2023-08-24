@@ -67,27 +67,3 @@
   color: orangered;
 }
 
-@media only screen and (max-width: 900px) {
-  .testimonials-container {
-    max-width: 100%;
-  }
-  #barsmenu {
-    display: block;
-  }
-}
-
-@media only screen and (max-width: 550px) {
-
-  .testimonials-container{
-    width: 100%;
-  }
-  .rating-container .rating-button-container button{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #barsmenu {
-    display: block;
-  }
-}
