@@ -73,7 +73,7 @@
     <!-- start project detail -->
     <div>
       <div class="text-center my-5">
-        <h2 class="text-danger fw-bolder">{{data.nama}}</h2>
+        <h2 class="text-danger fw-bolder">{{data.name}}</h2>
       </div>
       <div class="d-flex mt-5 mx-5">
         <div>
@@ -84,61 +84,42 @@
             <h5>Duration</h5>
             <span class="d-flex" style="flex-direction: column">
               <i class="fa-solid fa-calendar-days">
-                12 Jan 2023 - 12 Feb 2023</i>
-              <i class="fa-regular fa-clock mt-3"> 1 Month</i>
-            </span>
-          </div>
-          <div class="mt-5 d-flex" style="flex-direction: column">
-            <h5>Tecknologies</h5>
-            <span class="mt-2">
-              <i class="fa-brands fa-react"> React JS</i>
-              <i class="fa-brands fa-node-js mx-5"> Node JS</i>
-            </span>
-            <span class="mt-5">
-              <i
-                class="fa-brands fa-js"
-                style="margin-right: 30px; margin-left: 4px"
-              >
-                Java</i>
-              <i class="fa-brands fa-ioxhost mx-5"> Socket IO</i>
+                {{data.startDate}} || {{data.endDate}}</i>
+              <i class="fa-regular fa-clock mt-3"> {{data.Duration}}</i>
             </span>
           </div>
           <div class="mt-3">
-            <h6>
-              source ID{{data.id}}
-            </h6>
+              <h6>
+              Author : Guswandi</h6>
+          </div>
 
+          <div class="mt-5 d-flex" style="flex-direction: column">
+  <h5>Technologies</h5>
+  <span class="mt-2">
+    {{#if data.react}}
+      <i class="fa-brands fa-react"> React JS</i>
+    {{/if}}
+    {{#if data.nodejs}}
+      <i class="fa-brands fa-node-js mx-5"> Node JS</i>
+    {{/if}}
+  </span>
+  <span class="mt-5">
+    {{#if data.java}}
+      <i class="fa-brands fa-js" style="margin-right: 30px; margin-left: 4px"> Java</i>
+    {{/if}}
+    {{#if data.socketio}}
+      <i class="fa-brands fa-ioxhost mx-5"> Socket IO</i>
+    {{/if}}
+  </span>
+</div>
+
+            
+          </div>
           </div>
         </div>
       </div>
       <div class="mx-5 my-5">
-        <p style="text-align: justify">
-          Mungkin Anda sering mendengar istilah Konoha di media sosial atau
-          televisi. Istilah itu pun sering kali menjadi trending di Twitter.
-          Dalam hal lain, banyak yang menggunakan kata Konoha untuk menyebutkan
-          Negara Indonesia atau mengomentari kelakukan aneh warga kita sampai
-          sekarang. Lantas, apa kaitannya Konoha dengan Indonesia?. Konoha
-          merupakan sebuah desa fiksi di serial anime Naruto Shippuden yang
-          disebut mirip dengan Indonesia. Hal tersebut disebabkan karena
-          banyaknya kemiripan yang dimiliki oleh dua negara ini. Mulai dari
-          masyarakatnya yang beragam hingga kesamaan jumlah pemimpinnya. Inilah
-          yang kemudian membuat banyak warganet setuju menyebut Indonesia
-          sebagai Negara Konoha. Salah satu alasan kenapa Indonesia disebut
-          Negara Konoha adalah karena kesamaan dalam sisi pemimpin negaranya.
-          Dalam serial Naruto, Konoha memiliki 7 orang pemimpin yang disebut
-          Hokage (pemimpin Konoha). Hal itu pun kemudian dikaitkan dengan
-          beberapa presiden yang memimpin Indonesia. Presiden Pertama Indonesia,
-          Soekarno, disebut mirip dengan Hokage pertama Konoha yaitu Hashirama.
-          Kedua sama-sama pendiri negara dan memiliki sifat yang tegas. Kemudian
-          Soeharto, sebagai presiden kedua, dinilai memiliki kemiripan dengan
-          Tobirama Senju, Hokage kedua Konoha. Hal ini karena keduanya telah
-          membantu pemimpin pertama dalam membentuk negara. Selain itu,
-          Indonesia dan Konoha sama-sama pernah dipimpin oleh orang yang
-          memiliki kecerdasan di atas rata-rata. Mereka adalah B.J Habibie dan
-          Hiruzen Sarutobi. Sementara itu, K.H Abdurrahman Wahid atau Gus Dur
-          memiliki kesamaan dengan Minato Namikaze karena melepaskan jabatannya
-          demi menjaga perdamaian negara masing-masing.
-        </p>
+        <p style="text-align: justify"><h6 class="text-secondary fw-bolder">Desc :</h6> {{data.description}}</p>
       </div>
     </div>
     <!-- end project detail -->

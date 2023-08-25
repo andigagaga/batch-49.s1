@@ -120,277 +120,76 @@
     </div>
 
     <!-- end card-home -->
-
-    <div class="mb-5 bg-white container-fluid">
+    <div class="mb-5  container-fluid">
       <hr />
       <div class="mb-5">
         <h3 class="text-center fw-bolder">MY PROJECT</h3>
       </div>
       <div class="cards-my-projects row gap-5 justify-content-center d-flex">
-        <div
-          class="card row-col-6 bg-body-secondary"
-          style="width: 370px; height: auto"
-        >
-          <div style="width: 100%; height: auto">
+       {{#each dataProject}}
+          <div
+            class="card row-col-6 bg-white"
+            style="width: 370px; height: auto"
+          >
             <div style="width: 100%; height: auto">
-              <img
-                src="images/anak.png"
-                class="card-img-top"
-                alt="my-project"
-                style="object-fit: cover; width: 100%; height: 250px"
-              />
-            </div>
-
-            <div class="card-body">
-              <h3>Dumbways Web Apps-2023</h3>
-              <hp>Durasi: 3 bulan</hp>
-              <h6 class="card-text">
-                Some quick example text to build on the card title.Some quick
-                example text to build on the card title
-              </h6>
-              <div class="project-icon">
-                <i class="fa-brands fa-node-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-square-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-react" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-vuejs" style="margin-right: 8px"></i>
+              <div style="width: 100%; height: auto">
+                <img
+                  src="images/anak.png"
+                  class="card-img-top"
+                  alt="my-project"
+                  style="object-fit: cover; width: 100%; height: 250px"
+                />
               </div>
-              <div class="d-flex mt-2">
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none; margin-right: 8px"
-                >
-                  edit
-                </button>
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none"
-                >
-                  delete
-                </button>
+
+              <div class="card-body">
+                <a href="/projectDetail/{{@index}}" style="text-decoration: none;" class="text-black">
+                <h3>{{this.name}}</h3>
+                </a>
+                
+
+                <h6>{{this.startDate}} - {{this.endDate}}</h6>
+                <hp>Durasi: {{this.Duration}}</hp>
+                <h6 class="card-text">{{this.description}}</h6>
+                <div class="project-icon">
+                  {{#if this.react}}
+                    <i
+                      class="fa-brands fa-node-js"
+                      style="margin-right: 8px"
+                    ></i>
+                  {{/if}}
+                  {{#if this.java}}
+                    <i
+                      class="fa-brands fa-square-js"
+                      style="margin-right: 8px"
+                    ></i>
+                  {{/if}}
+                  {{#if this.nodejs}}
+                    <i class="fa-brands fa-react" style="margin-right: 8px"></i>
+                  {{/if}}
+                  {{#if this.socketio}}
+                    <i class="fa-brands fa-vuejs" style="margin-right: 8px"></i>
+                  {{/if}}
+                </div>
+
+                <div class="d-flex mt-2">
+                  <button
+                    class="w-50 rounded bg-black text-white"
+                    style="border: none; margin-right: 8px"
+                  >
+                    edit
+                  </button>
+                  <a
+                    href="/deleteProject/:{{@index}}"
+                    class="w-50 rounded bg-black text-white text-center"
+                    style="border: none; text-decoration:none"
+                  >
+                    delete
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="card row-col-6 bg-body-secondary"
-          style="width: 370px; height: auto"
-        >
-          <div style="width: 100%; height: auto">
-            <div style="width: 100%; height: auto">
-              <img
-                src="images/anak.png"
-                class="card-img-top"
-                alt="my-project"
-                style="object-fit: cover; width: 100%; height: 250px;"
-              />
-            </div>
-
-            <div class="card-body">
-              <h3>Dumbways Web Apps-2023</h3>
-              <hp>Durasi: 3 bulan</hp>
-              <h6 class="card-text">
-                Some quick example text to build on the card title.Some quick
-                example text to build on the card title
-              </h6>
-              <div class="project-icon">
-                <i class="fa-brands fa-node-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-square-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-react" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-vuejs" style="margin-right: 8px"></i>
-              </div>
-              <div class="d-flex mt-2">
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none; margin-right: 8px"
-                >
-                  edit
-                </button>
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none"
-                >
-                  delete
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="card row-col-6 bg-body-secondary"
-          style="width: 370px; height: auto"
-        >
-          <div style="width: 100%; height: auto">
-            <div style="width: 100%; height: auto">
-              <img
-                src="images/anak.png"
-                class="card-img-top"
-                alt="my-project"
-                style="object-fit: cover; width: 100%; height: 250px"
-              />
-            </div>
-
-            <div class="card-body">
-              <h3>Dumbways Web Apps-2023</h3>
-              <hp>Durasi: 3 bulan</hp>
-              <h6 class="card-text">
-                Some quick example text to build on the card title.Some quick
-                example text to build on the card title
-              </h6>
-              <div class="project-icon">
-                <i class="fa-brands fa-node-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-square-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-react" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-vuejs" style="margin-right: 8px"></i>
-              </div>
-              <div class="d-flex mt-2">
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none; margin-right: 8px"
-                >
-                  edit
-                </button>
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none"
-                >
-                  delete
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="card row-col-6 bg-body-secondary"
-          style="width: 370px; height: auto"
-        >
-          <div style="width: 100%; height: auto">
-            <div style="width: 100%; height: auto">
-              <img
-                src="images/anak.png"
-                class="card-img-top"
-                alt="my-project"
-                style="object-fit: cover; width: 100%; height: 250px"
-              />
-            </div>
-
-            <div class="card-body">
-              <h3>Dumbways Web Apps-2023</h3>
-              <hp>Durasi: 3 bulan</hp>
-              <h6 class="card-text">
-                Some quick example text to build on the card title.Some quick
-                example text to build on the card title
-              </h6>
-              <div class="project-icon">
-                <i class="fa-brands fa-node-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-square-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-react" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-vuejs" style="margin-right: 8px"></i>
-              </div>
-              <div class="d-flex mt-2">
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none; margin-right: 8px"
-                >
-                  edit
-                </button>
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none"
-                >
-                  delete
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="card row-col-6 bg-body-secondary"
-          style="width: 370px; height: auto"
-        >
-          <div style="width: 100%; height: auto">
-            <div style="width: 100%; height: auto">
-              <img
-                src="images/anak.png"
-                class="card-img-top"
-                alt="my-project"
-                style="object-fit: cover; width: 100%; height: 250px"
-              />
-            </div>
-
-            <div class="card-body">
-              <h3>Dumbways Web Apps-2023</h3>
-              <hp>Durasi: 3 bulan</hp>
-              <h6 class="card-text">
-                Some quick example text to build on the card title.Some quick
-                example text to build on the card title
-              </h6>
-              <div class="project-icon">
-                <i class="fa-brands fa-node-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-square-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-react" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-vuejs" style="margin-right: 8px"></i>
-              </div>
-              <div class="d-flex mt-2">
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none; margin-right: 8px"
-                >
-                  edit
-                </button>
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none"
-                >
-                  delete
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="card row-col-6 bg-body-secondary"
-          style="width: 370px; height: auto"
-        >
-          <div style="width: 100%; height: auto">
-            <div style="width: 100%; height: auto">
-              <img
-                src="images/anak.png"
-                class="card-img-top"
-                alt="my-project"
-                style="object-fit: cover; width: 100%; height: 250px"
-              />
-            </div>
-
-            <div class="card-body">
-              <h3>Dumbways Web Apps-2023</h3>
-              <hp>Durasi: 3 bulan</hp>
-              <h6 class="card-text">
-                Some quick example text to build on the card title.Some quick
-                example text to build on the card title
-              </h6>
-              <div class="project-icon">
-                <i class="fa-brands fa-node-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-square-js" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-react" style="margin-right: 8px"></i>
-                <i class="fa-brands fa-vuejs" style="margin-right: 8px"></i>
-              </div>
-              <div class="d-flex mt-2">
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none; margin-right: 8px"
-                >
-                  edit
-                </button>
-                <button
-                  class="w-50 rounded bg-black text-white"
-                  style="border: none"
-                >
-                  delete
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        {{/each}}
       </div>
     </div>
 

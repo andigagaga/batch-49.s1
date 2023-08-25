@@ -9,34 +9,26 @@ app.set("view engine", "hbs");
 app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: false }));
-
-// dummy data
+// Dummy data
 const dataProject = [
   {
-    Id: 0,
+    Id: 1,
     name: "Project 1",
     startDate: "15-05-2023",
     endDate: "15-06-2023",
     Duration: "1 bulan",
-    description: "Bootcamp sebulan gaes",
-    react: true,
-    java: true,
-    nodejs: true,
-    SocketIo: true,
-  },
-  {
-    Id: 0,
-    name: "Project 1",
-    startDate: "15-05-2023",
-    endDate: "15-06-2023",
-    Duration: "1 bulan",
-    description: "Bootcamp sebulan gaes",
+    description: "Bootcamp sebulan gaes1",
     react: true,
     java: true,
     nodejs: true,
     socketio: true,
   },
 ];
+
+// Fungsi untuk menghitung durasi
+function countDuration(startDate, endDate) {
+  // ... implementasi hitung durasi
+}
 
 // Menambahkan rute untuk berkas index.hbs
 app.get("/index", home);
@@ -45,6 +37,7 @@ app.get("/formMyproject", formMyproject);
 app.get("/contact", contact);
 app.get("/testimonial", testimonial);
 app.get("/projectDetail/:id", projectDetail);
+app.get("/deleteProject/:id", deleteProject);
 
 app.post("/formMyproject", addProject);
 
@@ -52,12 +45,12 @@ app.post("/formMyproject", addProject);
 
 // home
 function home(req, res) {
-  res.render("index");
+  res.render("index", { dataProject });
 }
 
 // myproject
 function myproject(req, res) {
-  res.render("myproject", { dataProject });
+  res.render("myproject");
 }
 
 // formproject
@@ -92,8 +85,9 @@ function addProject(req, res) {
     socketio,
   };
 
-  dataProject.push(data);
-  res.redirect("/myproject");
+  dataProject.push(data); // Menambahkan data baru ke dataProject
+
+  res.redirect("/index");
 }
 
 // untuk duration
@@ -133,11 +127,14 @@ function testimonial(req, res) {
 function projectDetail(req, res) {
   const { id } = req.params;
 
-  const data = {
-    id: id,
-    nama: "dumbways web apps 2023",
-  };
-  res.render("projectdetail", { data });
+  res.render("projectDetail", { data: dataProject[id] });
+}
+
+function deleteProject(req, res) {
+  const { id } = req.params;
+
+  dataProject.splice(id, 1);
+  res.redirect("/index");
 }
 
 // port
