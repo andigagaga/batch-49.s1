@@ -1,0 +1,12 @@
+ .project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Jarak antar kartu */
+  }
+
+  .project-card {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: 370px;
+    height: auto;
+  }
