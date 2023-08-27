@@ -10,3 +10,8 @@
     max-width: 370px;
     height: auto;
   }
+
+
+  dataProject = dataProject.filter((item) => {
+    return item.Id != id;
+  }); = dia akan ngehapus Id milik item yang tidak sama dengan id

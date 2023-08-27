@@ -1,0 +1,247 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>editProject</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-body-secondary">
+    <nav class="navbar navbar-expand-lg bg-white container-fluid">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/images/logo_navbar.png"
+            alt="Logo"
+            style="width: 35px; height: auto"
+          />
+        </a>
+        <div class="navbar-toggler-center">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <div
+          class="collapse navbar-collapse text-center"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item mx-3">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="/index"
+              >Home</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link" href="/myproject">Add Project</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link" href="/testimonial">My Testimonials</a>
+            </li>
+          </ul>
+          <div
+            class="d-flex collapse justify-content-center fw-bolder"
+            role="search"
+          >
+            <a class="btn bg-black text-white" href="/contact">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div>
+      <div class="my-5">
+        <form
+          class="container w-75 bg-white p-5 rounded"
+          method="post"
+          action="/updateProject/{{data.Id}}"
+        >
+          <h3 class="text-center">EDIT MY PROJECT</h3>
+          <div class="mb-5 mt-5">
+            <label for="input-projectname" class="form-label">Project Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="input-projectname"
+              aria-describedby="emailHelp"
+              name="name"
+              value="{{data.name}}"
+            />
+          </div>
+          <div class="mb-5 d-flex">
+            <div class="w-50" style="margin-right: 25px">
+              <label for="input-startdate">Start Date</label>
+              <input
+                type="date"
+                class="form-control mt-2"
+                id="input-startdate"
+                name="startDate"
+                value="{{data.startDate}}"
+              />
+            </div>
+            <div class="w-50">
+              <label for="input-enddate">End Date</label>
+              <input
+                type="date"
+                class="form-control mt-2"
+                id="input-enddate"
+                name="endDate"
+                value="{{data.endDate}}"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="input-description">Description</label>
+            <textarea
+              class="form-control mt-2"
+              id="input-description"
+              style="height: 200px; resize: none"
+              name="description"
+              
+            >{{data.description}}</textarea>
+          </div>
+          <div class="mb-5">
+            <div class="row">
+              <label class="judul-cekbox mb-3" for="cekbox">Technologies</label>
+              <div class="col">
+
+                <div class="form-check mb-3">
+                  {{#if data.react}}
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="react"
+                    id="reactJs"
+                    value="React JS"
+                    checked
+                  />
+                  {{else}}
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="react"
+                    id="reactJs"
+                    value="React JS"
+                  />
+                  {{/if}}
+                  <label class="form-check-label" for="reactJs">
+                    React JS
+                  </label>
+                </div>
+                <div class="form-check">
+                  {{#if data.java}}
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="java"
+                    id="Java"
+                    value="Java"
+                    checked
+                  />
+                  {{else}}
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="java"
+                    id="Java"
+                    value="Java"
+                  />
+                  {{/if}}
+                  <label class="form-check-label" for="Java">
+                    Java
+                  </label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-check mb-3">
+                  {{#if data.nodejs}}
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="nodejs"
+                    id="nodeJs"
+                    value="Node JS"
+                    checked
+                  />
+                  {{else}}
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="nodejs"
+                    id="nodeJs"
+                    value="Node JS"
+                  />
+                  {{/if}}
+                  <label class="form-check-label" for="nodeJs">
+                    Node JS
+                  </label>
+                </div>
+                <div class="form-check">
+                  {{#if data.socketio}}
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="socketio"
+                    id="socketIO"
+                    value="socket IO"
+                    checked
+                  />
+                  {{else}}
+                   <input
+                    class="form-check-input"
+                    type="checkbox"
+                    name="socketio"
+                    id="socketIO"
+                    value="socket IO"
+                  />
+                  {{/if}}
+                  <label class="form-check-label" for="socketIO">
+                    Socket IO
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-5 mt-5">
+            <div>
+              <label for="formFileLg" class="form-label">Upload Image</label>
+              <input class="form-control" id="formFileLg" type="file" />
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn bg-black text-white">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
