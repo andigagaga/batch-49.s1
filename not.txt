@@ -15,3 +15,18 @@
   dataProject = dataProject.filter((item) => {
     return item.Id != id;
   }); = dia akan ngehapus Id milik item yang tidak sama dengan id
+
+  config = koneksi ke data base nya
+
+  migration = menterjemahkan blueprint dengan data base/nge SET nya
+
+  models = blue print tabel data base
+
+  sheeders = 
+
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+[8:44 PM]
+
+npx sequelize-cli db:migrate
+[8:47 PM]
+npx sequelize-cli init

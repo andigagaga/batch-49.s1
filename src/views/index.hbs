@@ -150,15 +150,12 @@
                   <h3>{{this.name}}</h3>
                 </a>
 
-                <h6>{{this.startDate}} - {{this.endDate}}</h6>
-                <h6>Durasi: {{this.Duration}}</h6>
+                <h6>{{this.start_date}} - {{this.end_date}}</h6>
+                <h6>Durasi: {{this.duration}}</h6>
                 <h6 class="card-text">{{this.description}}</h6>
                 <div class="project-icon">
                   {{#if this.react}}
-                    <i
-                      class="fa-brands fa-node-js"
-                      style="margin-right: 8px"
-                    ></i>
+                    <i class="fa-brands fa-react" style="margin-right: 8px"></i>
                   {{/if}}
                   {{#if this.java}}
                     <i
@@ -166,10 +163,13 @@
                       style="margin-right: 8px"
                     ></i>
                   {{/if}}
-                  {{#if this.nodejs}}
-                    <i class="fa-brands fa-react" style="margin-right: 8px"></i>
+                  {{#if this.node_js}}
+                    <i
+                      class="fa-brands fa-node-js"
+                      style="margin-right: 8px"
+                    ></i>
                   {{/if}}
-                  {{#if this.socketio}}
+                  {{#if this.socket_io}}
                     <i class="fa-brands fa-vuejs" style="margin-right: 8px"></i>
                   {{/if}}
                 </div>

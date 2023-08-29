@@ -1,41 +1,37 @@
 const express = require("express");
 const app = express();
+const path = require("path"); // Import module path
 const port = 7000;
+const config = require('./src/config/config.json')
+const {Sequelize, QueryTypes} = require('sequelize')
+const sequelize = new Sequelize(config.development)
 
 // Menggunakan hbs sebagai view engine
 app.set("view engine", "hbs");
 
+// Mengatur lokasi folder views
+app.set("views", path.join(__dirname, "src", "views"));
+
 // Mengatur folder untuk static assets seperti CSS, JavaScript, dll.
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "src", "public")));
 
 app.use(express.urlencoded({ extended: false }));
+
 // Dummy data
-let dataProject = [
-  {
-    Id: 1,
-    name: "Project 1",
-    startDate: "15-05-2023",
-    endDate: "15-06-2023",
-    Duration: "1 bulan",
-    description: "Bootcamp sebulan gaes1",
-    react: true,
-    java: true,
-    nodejs: true,
-    socketio: true,
-  },
-  {
-    Id: 2,
-    name: "Project 2",
-    startDate: "15-05-2023",
-    endDate: "15-06-2023",
-    Duration: "1 bulan",
-    description: "Bootcamp sebulan gaes1",
-    react: true,
-    java: true,
-    nodejs: true,
-    socketio: true,
-  },
-];
+// let dataProject = [
+//   {
+//     Id: 1,
+//     name: "Project 1",
+//     startDate: "15-05-2023",
+//     endDate: "15-06-2023",
+//     Duration: "1 bulan",
+//     description: "Bootcamp sebulan gaes1",
+//     react: true,
+//     java: true,
+//     nodejs: true,
+//     socketio: true,
+//   },
+// ];
 
 // Fungsi untuk menghitung durasi
 function countDuration(startDate, endDate) {
@@ -57,9 +53,22 @@ app.post("/formMyproject", addProject);
 app.post("/updateProject/:id", updateProject);
 
 // home
-function home(req, res) {
-  res.render("index", { dataProject });
-}
+// function home(req, res) {
+//   res.render("index", { dataProject });
+// }
+
+async function home(req,res) {
+  try{
+    const query = `SELECT id, name, start_date, end_date, duration, description, react, java, node_js, socket_io, "createdAt", "updatedAt"
+    FROM public.projets;`
+    let object = await sequelize.query(query,{
+      type:QueryTypes.SELECT
+    })
+    res.render("index",{dataProject:object});
+  } catch(err) {
+    console.log(err)
+  }
+};
 
 // myproject
 function myproject(req, res) {
@@ -143,7 +152,7 @@ function projectDetail(req, res) {
 
   const selectedProject = dataProject.filter((item) => {
     return item.Id == id;
-  })
+  });
 
   res.render("projectDetail", { data: selectedProject[0] });
 }
@@ -155,7 +164,6 @@ function deleteProject(req, res) {
     return item.Id != id;
   });
 
-  // dataProject.splice(id, 1);
   res.redirect("/index");
 }
 
