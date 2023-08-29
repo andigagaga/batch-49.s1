@@ -15,9 +15,9 @@ module.exports = {
     await queryInterface.bulkInsert('projets', [
       {
         name: 'andi',
-        start_date:'2021-08-12',
-        end_date: '2022-08-12',
-        duration: '2 bulan',
+        start_date:'2022-08-12',
+        end_date: '2022-09-12',
+        duration: '',
         description: 'apa sih kamu',
         react: true,
         java: false,
@@ -28,9 +28,9 @@ module.exports = {
     },
     {
       name: 'andi',
-      start_date:'2021-08-12',
-      end_date: '2022-08-12',
-      duration: '2 bulan',
+      start_date:'2022-08-12',
+      end_date: '2022-09-12',
+      duration: '',
       description: 'apa sih kamu',
       react: true,
       java: false,

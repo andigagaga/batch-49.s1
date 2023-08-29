@@ -25,8 +25,9 @@
   sheeders = 
 
 npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
-[8:44 PM]
+[8:44 PM] = bikin database
 
 npx sequelize-cli db:migrate
-[8:47 PM]
-npx sequelize-cli init
+[8:47 PM] = buat object database
+
+npx sequelize-cli init = init module sequelize

@@ -2,9 +2,9 @@ const express = require("express");
 const app = express();
 const path = require("path"); // Import module path
 const port = 7000;
-const config = require('./src/config/config.json')
-const {Sequelize, QueryTypes} = require('sequelize')
-const sequelize = new Sequelize(config.development)
+const config = require("./src/config/config.json");
+const { Sequelize, QueryTypes } = require("sequelize");
+const sequelize = new Sequelize(config.development);
 
 // Menggunakan hbs sebagai view engine
 app.set("view engine", "hbs");
@@ -57,18 +57,24 @@ app.post("/updateProject/:id", updateProject);
 //   res.render("index", { dataProject });
 // }
 
-async function home(req,res) {
-  try{
+async function home(req, res) {
+  try {
     const query = `SELECT id, name, start_date, end_date, duration, description, react, java, node_js, socket_io, "createdAt", "updatedAt"
-    FROM public.projets;`
-    let object = await sequelize.query(query,{
-      type:QueryTypes.SELECT
-    })
-    res.render("index",{dataProject:object});
-  } catch(err) {
-    console.log(err)
+    FROM public.projets;`;
+    let object = await sequelize.query(query, { type: QueryTypes.SELECT });
+
+    let daProjectBase = object.map((item) => {
+      return {
+        ...item,
+        duration: countDuration(item.start_date, item.end_date),
+      };
+    });
+
+    res.render("index", { dataProject: daProjectBase });
+  } catch (err) {
+    console.log(err);
   }
-};
+}
 
 // myproject
 function myproject(req, res) {
