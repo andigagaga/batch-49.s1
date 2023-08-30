@@ -172,7 +172,7 @@ async function editProject(req, res) {
   res.render("editProject", { data: daProjectBase[0] });
 }
 
-function updateProject(req, res) {
+async function updateProject(req, res) {
   const { id } = req.params;
 
   const {
@@ -188,23 +188,16 @@ function updateProject(req, res) {
 
   const duration = countDuration(startDate, endDate);
 
-  const newUpdate = {
-    Id: id,
-    name: name,
-    startDate: startDate,
-    endDate: endDate,
-    description: description,
-    Duration: duration,
-    react: react,
-    java: java,
-    nodejs: nodejs,
-    socketio: socketio,
-  };
-  // console.log(newUpdate);
-  dataProject = dataProject.filter((item) => {
-    return item.Id != id;
-  });
-  dataProject.push(newUpdate);
+  // Mengubah nilai string kosong menjadi false jika checkbox tidak dipilih
+  const reactjsCheck = react === "true" ? true : false;
+  const javaCheck = java === "true" ? true : false;
+  const nodeJsCheck = nodejs === "true" ? true : false;
+  const socketioCheck = socketio === "true" ? true : false;
+
+  await sequelize.query(`UPDATE "projets"
+	SET name='${name}', start_date='${startDate}', end_date='${endDate}', duration='${duration}', description='${description}', react='${reactjsCheck}', java='${javaCheck}', node_js='${nodeJsCheck}', socket_io='${socketioCheck}', "createdAt"=NOW(), "updatedAt"= NOW()
+	WHERE id = ${id};`)
+  
 
   res.redirect("/index");
 }
