@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     react: DataTypes.BOOLEAN,
     java: DataTypes.BOOLEAN,
     node_js: DataTypes.BOOLEAN,
-    socket_io: DataTypes.BOOLEAN
+    socket_io: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'projets',

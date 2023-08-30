@@ -97,7 +97,7 @@
                 class="form-control mt-2"
                 id="input-startdate"
                 name="startDate"
-                value="{{data.startDate}}"
+                value="{{data.start_date}}"
               />
             </div>
             <div class="w-50">
@@ -107,7 +107,7 @@
                 class="form-control mt-2"
                 id="input-enddate"
                 name="endDate"
-                value="{{data.endDate}}"
+                value="{{data.end_date}}"
               />
             </div>
           </div>
@@ -175,7 +175,7 @@
               </div>
               <div class="col">
                 <div class="form-check mb-3">
-                  {{#if data.nodejs}}
+                  {{#if data.node_js}}
                   <input
                     class="form-check-input"
                     type="checkbox"
@@ -198,7 +198,7 @@
                   </label>
                 </div>
                 <div class="form-check">
-                  {{#if data.socketio}}
+                  {{#if data.socket_io}}
                   <input
                     class="form-check-input"
                     type="checkbox"

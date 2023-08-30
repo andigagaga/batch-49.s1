@@ -143,14 +143,15 @@
 
               <div class="card-body">
                 <a
-                  href="/projectDetail/{{this.Id}}"
+                  href="/projectDetail/{{this.id}}"
                   style="text-decoration: none;"
                   class="text-black"
                 >
+
                   <h3>{{this.name}}</h3>
                 </a>
 
-                <h6>{{this.start_date}} - {{this.end_date}}</h6>
+                <h6>{{this.start_date}} ➖ {{this.end_date}}</h6>
                 <h6>Durasi: {{this.duration}}</h6>
                 <h6 class="card-text">{{this.description}}</h6>
                 <div class="project-icon">
@@ -176,14 +177,14 @@
 
                 <div class="d-flex mt-2">
                   <a
-                    href="/editProeject/{{this.Id}}"
+                    href="/editProeject/{{this.id}}"
                     class="w-50 rounded bg-black text-white text-center"
                     style="border: none; margin-right: 8px; text-decoration:none"
                   >
                     edit
                   </a>
                   <a
-                    href="/deleteProject/{{this.Id}}"
+                    href="/deleteProject/{{this.id}}"
                     class="w-50 rounded bg-black text-white text-center"
                     style="border: none; text-decoration:none"
                   >

@@ -18,20 +18,6 @@ app.use(express.static(path.join(__dirname, "src", "public")));
 app.use(express.urlencoded({ extended: false }));
 
 // Dummy data
-// let dataProject = [
-//   {
-//     Id: 1,
-//     name: "Project 1",
-//     startDate: "15-05-2023",
-//     endDate: "15-06-2023",
-//     Duration: "1 bulan",
-//     description: "Bootcamp sebulan gaes1",
-//     react: true,
-//     java: true,
-//     nodejs: true,
-//     socketio: true,
-//   },
-// ];
 
 // Fungsi untuk menghitung durasi
 function countDuration(startDate, endDate) {
@@ -59,7 +45,7 @@ app.post("/updateProject/:id", updateProject);
 
 async function home(req, res) {
   try {
-    const query = `SELECT id, name, start_date, end_date, duration, description, react, java, node_js, socket_io, "createdAt", "updatedAt"
+    const query = `SELECT id, name, start_date, end_date, duration, description, react, java, node_js, socket_io,"createdAt", "updatedAt"
     FROM public.projets;`;
     let object = await sequelize.query(query, { type: QueryTypes.SELECT });
 
@@ -87,7 +73,7 @@ function formMyproject(req, res) {
 }
 
 // add project
-function addProject(req, res) {
+async function addProject(req, res) {
   const {
     name,
     startDate,
@@ -100,21 +86,17 @@ function addProject(req, res) {
   } = req.body;
 
   const duration = countDuration(startDate, endDate);
+  // const image = "image.png"
 
-  const data = {
-    Id: new Date().getTime(),
-    name,
-    startDate,
-    endDate,
-    Duration: duration,
-    description,
-    react,
-    java,
-    nodejs,
-    socketio,
-  };
+  // Mengubah nilai string kosong menjadi false jika checkbox tidak dipilih
+  const reactjsCheck = react === "true" ? true : false;
+  const javaCheck = java === "true" ? true : false;
+  const nodeJsCheck = nodejs === "true" ? true : false;
+  const socketioCheck = socketio === "true" ? true : false;
 
-  dataProject.push(data); // Menambahkan data baru ke dataProject
+  await sequelize.query(`INSERT INTO "projets"(
+    name, start_date, end_date, duration, description, react, java, node_js, socket_io, "createdAt", "updatedAt")
+    VALUES ('${name}', '${startDate}', '${endDate}', '${duration}', '${description}','${reactjsCheck}','${javaCheck}', '${nodeJsCheck}', '${socketioCheck}', NOW(), NOW());`);
 
   res.redirect("/index");
 }
@@ -153,32 +135,41 @@ function testimonial(req, res) {
 }
 
 // project detail
-function projectDetail(req, res) {
+async function projectDetail(req, res) {
   const { id } = req.params;
 
-  const selectedProject = dataProject.filter((item) => {
-    return item.Id == id;
-  });
+  const query = `SELECT * FROM "projets" WHERE id=${id}`;
+  const object = await sequelize.query(query, { type: QueryTypes.SELECT });
+  console.log(object);
 
-  res.render("projectDetail", { data: selectedProject[0] });
+  res.render("projectDetail", { data: object[0] });
 }
 
-function deleteProject(req, res) {
-  const { id } = req.params;
+async function deleteProject(req, res) {
+  try {
+    const { id } = req.params;
 
-  dataProject = dataProject.filter((item) => {
-    return item.Id != id;
-  });
+    await sequelize.query(`DELETE FROM "projets" WHERE id=${id}`);
 
-  res.redirect("/index");
+    res.redirect("/index");
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function editProject(req, res) {
+async function editProject(req, res) {
   const { id } = req.params;
 
-  const data = dataProject.filter((item) => item.Id == id);
-  console.log(data);
-  res.render("editProject", { data: data[0] });
+  const query = `SELECT * FROM "projets" WHERE id=${id}`;
+  const object = await sequelize.query(query, { type: QueryTypes.SELECT });
+  let daProjectBase = object.map((item) => {
+    return {
+      ...item,
+      duration: countDuration(item.start_date, item.end_date),
+    };
+  });
+  
+  res.render("editProject", { data: daProjectBase[0] });
 }
 
 function updateProject(req, res) {
@@ -209,7 +200,7 @@ function updateProject(req, res) {
     nodejs: nodejs,
     socketio: socketio,
   };
-  console.log(newUpdate);
+  // console.log(newUpdate);
   dataProject = dataProject.filter((item) => {
     return item.Id != id;
   });

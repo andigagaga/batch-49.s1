@@ -20,27 +20,14 @@ module.exports = {
         duration: '',
         description: 'apa sih kamu',
         react: true,
-        java: false,
-        node_js: true,
+        node_js: false,
+        java: true,
         socket_io: false,
         createdAt: new Date(),
         updatedAt: new Date()
     },
-    {
-      name: 'andi',
-      start_date:'2022-08-12',
-      end_date: '2022-09-12',
-      duration: '',
-      description: 'apa sih kamu',
-      react: true,
-      java: false,
-      node_js: true,
-      socket_io: false,
-      createdAt: new Date(),
-      updatedAt: new Date()
-  }
   ], {});
-   
+  
   },
 
   async down (queryInterface, Sequelize) {
