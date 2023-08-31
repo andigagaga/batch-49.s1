@@ -85,11 +85,14 @@
     </nav>
 
     {{#if messages.danger}}
-    <div class="alert alert-danger d-flex justify-content-center" role="alert">
-      <div class="container justify-content-center text-center">
-      {{messages.danger}}
+      <div
+        class="alert alert-danger d-flex justify-content-center"
+        role="alert"
+      >
+        <div class="container justify-content-center text-center">
+          {{messages.danger}}
+        </div>
       </div>
-    </div>
     {{/if}}
 
     <!--start form-login -->
@@ -121,6 +124,13 @@
               placeholder="Your Password"
             />
           </div>
+          <div>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="showPass"
+            >Show</button>
+          </div>
           <div class="d-flex justify-content-end mb-5">
             <button
               type="submit"
@@ -138,5 +148,12 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const showPassword = document.getElementById('showPass'); const
+      passwordInput = document.getElementById('Password');
+      showPassword.addEventListener('click', () => { if (passwordInput.type ===
+      'password') { passwordInput.type = 'text'; } else { passwordInput.type =
+      'password';   } });
+    </script>
   </body>
 </html>
