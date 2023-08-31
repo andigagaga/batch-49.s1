@@ -31,3 +31,7 @@ npx sequelize-cli db:migrate
 [8:47 PM] = buat object database
 
 npx sequelize-cli init = init module sequelize
+
+
+authentication = untuk memverivikasi data / haik pengguna
+
