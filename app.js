@@ -6,7 +6,6 @@ const bcrypt = require("bcrypt");
 const flash = require("express-flash");
 const session = require("express-session");
 
-
 const config = require("./src/config/config.json");
 const { Sequelize, QueryTypes } = require("sequelize");
 const sequelize = new Sequelize(config.development);
@@ -23,16 +22,18 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(flash());
 
-app.use(session({
-  cookie: {
-    httpOnly: true,
-    secure: true,
-    maxAge: 1000 * 60 * 60 * 2
-  },
-  store: new session.MemoryStore(),
-  resave: false,
-  secret: 'secretValue'
-}))
+app.use(
+  session({
+    cookie: {
+      httpOnly: true,
+      secure: false,
+      maxAge: 1000 * 60 * 60 * 2,
+    },
+    store: new session.MemoryStore(),
+    resave: false,
+    secret: "secretValue",
+  })
+);
 
 // Dummy data
 
@@ -50,8 +51,9 @@ app.get("/testimonial", testimonial);
 app.get("/projectDetail/:id", projectDetail);
 app.get("/deleteProject/:id", deleteProject);
 app.get("/editProeject/:id", editProject);
-app.get("/register", formRegister)
-app.get("/login", formLogin)
+app.get("/register", formRegister);
+app.get("/login", formLogin);
+app.get("/logout", logout);
 
 // route post
 app.post("/register", addRegister);
@@ -70,14 +72,20 @@ async function home(req, res) {
     FROM public.projets;`;
     let object = await sequelize.query(query, { type: QueryTypes.SELECT });
 
-    let daProjectBase = object.map((item) => {
+    let dataProject = object.map((item) => {
       return {
+        isLogin: req.session.isLogin,
+        user: req.session.user,
         ...item,
         duration: countDuration(item.start_date, item.end_date),
       };
     });
 
-    res.render("index", { dataProject: daProjectBase });
+    res.render("index", {
+      dataProject,
+      isLogin: req.session.isLogin,
+      user: req.session.user,
+    });
   } catch (err) {
     console.log(err);
   }
@@ -85,7 +93,10 @@ async function home(req, res) {
 
 // myproject
 function myproject(req, res) {
-  res.render("myproject");
+  res.render("myproject", {
+    isLogin: req.session.isLogin,
+    user: req.session.user,
+  });
 }
 
 // formproject
@@ -189,7 +200,7 @@ async function editProject(req, res) {
       duration: countDuration(item.start_date, item.end_date),
     };
   });
-  
+
   res.render("editProject", { data: daProjectBase[0] });
 }
 
@@ -210,76 +221,87 @@ async function updateProject(req, res) {
   const duration = countDuration(startDate, endDate);
 
   // Nilai True/False
-  const reactjsCheck = react  ? true : false;
-  const javaCheck = java  ? true : false;
-  const nodeJsCheck = nodejs  ? true : false;
-  const socketioCheck = socketio  ? true : false;
+  const reactjsCheck = react ? true : false;
+  const javaCheck = java ? true : false;
+  const nodeJsCheck = nodejs ? true : false;
+  const socketioCheck = socketio ? true : false;
 
   await sequelize.query(`UPDATE "projets"
 	SET name='${name}', start_date='${startDate}', end_date='${endDate}', duration='${duration}', description='${description}', react='${reactjsCheck}', java='${javaCheck}', node_js='${nodeJsCheck}', socket_io='${socketioCheck}', "createdAt"=NOW(), "updatedAt"= NOW()
-	WHERE id = ${id};`)
-  
+	WHERE id = ${id};`);
 
   res.redirect("/index");
 }
 
-function formRegister(req,res) {
-  res.render("register")
+function formRegister(req, res) {
+  res.render("register");
 }
 
-async function addRegister(req,res) {
+async function addRegister(req, res) {
   try {
-    const { name, email, password} = req.body;
+    const { name, email, password } = req.body;
     const salt = 10;
 
     await bcrypt.hash(password, salt, (err, hashPassword) => {
       const query = `INSERT INTO "users"(
         name, email, password, "createdAt", "updatedAt")
-        VALUES ( '${name}', '${email}', '${hashPassword}', NOW(), NOW());`
+        VALUES ( '${name}', '${email}', '${hashPassword}', NOW(), NOW());`;
 
-        sequelize.query(query)
-        res.redirect("/index")
-    })
-
+      sequelize.query(query);
+      res.redirect("/login");
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 
-function formLogin(req,res) {
-  res.render("login")
+function formLogin(req, res) {
+  res.render("login");
 }
 
 async function addLogin(req, res) {
   try {
-    const { email, password} = req.body;
-    const query = `SELECT * FROM "users" WHERE email = '${email}'`
+    const { email, password } = req.body;
+    const query = `SELECT * FROM "users" WHERE email = '${email}'`;
 
-    let object = await sequelize.query(query, {type:QueryTypes.SELECT})
-    console.log(object)
+    let object = await sequelize.query(query, { type: QueryTypes.SELECT });
+    console.log(object);
 
     // memeriksa apakah email belum terdaftar
-    if(!object.length) {
-      req.flash('danger', "user not")
-      return res.redirect("/login")
+    if (!object.length) {
+      req.flash("danger", "user not");
+      return res.redirect("/login");
     }
 
     await bcrypt.compare(password, object[0].password, (err, result) => {
-      if(!result) {
-        req.flash('danger', "password salah")
-        return res.redirect("/login")
+      if (!result) {
+        req.flash("danger", "password salah");
+        return res.redirect("/login");
       } else {
-        req.session.isLogin = true
-        req.session.user = object[0].name
-        req.flash('succes', "login succes")
-        res.redirect("/index")
+        req.session.isLogin = true;
+        req.session.user = object[0].name;
+        req.flash("succes", "login succes");
+        res.redirect("/index");
       }
-    })
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 
+function logout(req, res) {
+  if (req.session.isLogin) {
+    req.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect("/index");
+      }
+    });
+  } else {
+    res.redirect("/index");
+  }
+}
 
 // port
 app.listen(port, () => {

@@ -84,12 +84,20 @@
       </div>
     </nav>
 
+    {{#if messages.danger}}
+    <div class="alert alert-danger d-flex justify-content-center" role="alert">
+      <div class="container justify-content-center text-center">
+      {{messages.danger}}
+      </div>
+    </div>
+    {{/if}}
+
     <!--start form-login -->
     <div>
       <div class="d-flex justify-content-center mt-5">
         <form class="container w-50 bg-light p-5" action="/login" method="post">
           <div class="mb-3 mt-5">
-            <h2 class="text-center fw-bolder">Login</h2>
+            <h2 class="text-center fw-bolder">LOGIN</h2>
           </div>
           <div class="mb-3 mt-5">
             <label for="Email" class="form-label">Email</label>
@@ -105,7 +113,13 @@
           <div class="mb-3">
             <label for="Password" class="form-label">Password
               <b class="text-danger">*</b></label>
-            <input type="password" class="form-control" id="Password" name="password" placeholder="Your Password"/>
+            <input
+              type="password"
+              class="form-control"
+              id="Password"
+              name="password"
+              placeholder="Your Password"
+            />
           </div>
           <div class="d-flex justify-content-end mb-5">
             <button

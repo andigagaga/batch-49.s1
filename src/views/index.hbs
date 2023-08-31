@@ -61,6 +61,29 @@
               <a class="nav-link" href="testimonial">My Testimonials</a>
             </li>
           </ul>
+          {{#if isLogin}}
+            <div class="d-flex fw-bolder mx-5" role="search">
+              <a class="nav-link text-danger" href="#">Helo, {{user}}</a>
+            </div>
+            <div class="d-flex fw-bolder mx-5" role="search">
+              <a class="nav-link" href="/logout">Logout</a>
+            </div>
+          {{else}}
+            <div>
+              <a
+                class="text-black"
+                href="register"
+                style="text-decoration: none;"
+              >Register</a>
+            </div>
+            <div>
+              <a
+                class="text-danger fw-bolder mx-5"
+                href="login"
+                style="text-decoration: none;"
+              >Login</a>
+            </div>
+          {{/if}}
           <div
             class="d-flex collapse justify-content-center fw-bolder"
             role="search"
@@ -70,6 +93,14 @@
         </div>
       </div>
     </nav>
+
+    {{#if messages.succes}}
+      <div class="alert alert-success" role="alert">
+        <div class="container text-center">
+          {{messages.succes}}
+        </div>
+      </div>
+    {{/if}}
 
     <!--start card-home -->
     <div class="container my-5">
@@ -175,6 +206,7 @@
                   {{/if}}
                 </div>
 
+                {{#if this.isLogin}}
                 <div class="d-flex mt-2">
                   <a
                     href="/editProeject/{{this.id}}"
@@ -191,6 +223,7 @@
                     delete
                   </a>
                 </div>
+                {{/if}}
               </div>
             </div>
           </div>
