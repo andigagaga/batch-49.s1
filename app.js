@@ -30,11 +30,11 @@ app.use(
       maxAge: 1000 * 60 * 60 * 2,
     },
     store: new session.MemoryStore(),
+    saveUninitialized: true,
     resave: false,
     secret: "secretValue",
   })
 );
-
 // Dummy data
 
 // Fungsi untuk menghitung durasi
@@ -77,6 +77,7 @@ async function home(req, res) {
         isLogin: req.session.isLogin,
         user: req.session.user,
         ...item,
+        // author: "Dandi Saputra",
         duration: countDuration(item.start_date, item.end_date),
       };
     });
@@ -107,6 +108,7 @@ function formMyproject(req, res) {
 // add project
 async function addProject(req, res) {
   const {
+    // author,
     name,
     startDate,
     endDate,
@@ -126,8 +128,7 @@ async function addProject(req, res) {
   const nodeJsCheck = nodejs === "true" ? true : false;
   const socketioCheck = socketio === "true" ? true : false;
 
-  await sequelize.query(`INSERT INTO "projets"(
-    name, start_date, end_date, duration, description, react, java, node_js, socket_io, "createdAt", "updatedAt")
+  await sequelize.query(`INSERT INTO "projets"(name, start_date, end_date, duration, description, react, java, node_js, socket_io, "createdAt", "updatedAt")
     VALUES ('${name}', '${startDate}', '${endDate}', '${duration}', '${description}','${reactjsCheck}','${javaCheck}', '${nodeJsCheck}', '${socketioCheck}', NOW(), NOW());`);
 
   res.redirect("/index");
@@ -172,9 +173,12 @@ async function projectDetail(req, res) {
 
   const query = `SELECT * FROM "projets" WHERE id=${id}`;
   const object = await sequelize.query(query, { type: QueryTypes.SELECT });
-  console.log(object);
+  const data = object.map((res) => ({
+    ...res,
+    author: "Eltra"
+  }))
 
-  res.render("projectDetail", { data: object[0] });
+  res.render("projectDetail", { data: data[0] });
 }
 
 async function deleteProject(req, res) {
