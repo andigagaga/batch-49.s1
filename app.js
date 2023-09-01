@@ -68,16 +68,14 @@ app.post("/updateProject/:id", updateProject);
 
 async function home(req, res) {
   try {
-    const query = `SELECT id, name, start_date, end_date, duration, description, react, java, node_js, socket_io,"createdAt", "updatedAt"
-    FROM public.projets;`;
+    const query = `SELECT "projets".id, "projets".name, start_date, end_date, description, react, java, node_js, socket_io, image, 
+    users.name AS author FROM "projets" LEFT JOIN users ON "projets".author = users.id;`;
     let object = await sequelize.query(query, { type: QueryTypes.SELECT });
 
     let dataProject = object.map((item) => {
       return {
         isLogin: req.session.isLogin,
-        user: req.session.user,
         ...item,
-        // author: "Dandi Saputra",
         duration: countDuration(item.start_date, item.end_date),
       };
     });
@@ -120,7 +118,8 @@ async function addProject(req, res) {
   } = req.body;
 
   const duration = countDuration(startDate, endDate);
-  // const image = "image.png"
+  const author = req.session.idUser;
+  const image = "image.png"
 
   // Mengubah nilai string kosong menjadi false jika checkbox tidak dipilih
   const reactjsCheck = react === "true" ? true : false;
@@ -128,8 +127,8 @@ async function addProject(req, res) {
   const nodeJsCheck = nodejs === "true" ? true : false;
   const socketioCheck = socketio === "true" ? true : false;
 
-  await sequelize.query(`INSERT INTO "projets"(name, start_date, end_date, duration, description, react, java, node_js, socket_io, "createdAt", "updatedAt")
-    VALUES ('${name}', '${startDate}', '${endDate}', '${duration}', '${description}','${reactjsCheck}','${javaCheck}', '${nodeJsCheck}', '${socketioCheck}', NOW(), NOW());`);
+  await sequelize.query(`INSERT INTO "projets"(author, name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, "createdAt", "updatedAt")
+    VALUES ('${author}', '${name}', '${startDate}', '${endDate}', '${duration}', '${description}','${reactjsCheck}','${javaCheck}', '${nodeJsCheck}', '${socketioCheck}', '${image}', NOW(), NOW());`);
 
   res.redirect("/index");
 }
@@ -171,11 +170,11 @@ function testimonial(req, res) {
 async function projectDetail(req, res) {
   const { id } = req.params;
 
-  const query = `SELECT * FROM "projets" WHERE id=${id}`;
+  const query = `SELECT "projets".id, "projets".name, start_date, end_date, description, react, java, node_js, socket_io, image, 
+  users.name AS author FROM "projets" LEFT JOIN users ON "projets".author = users.id WHERE projets.id=${id}`;
   const object = await sequelize.query(query, { type: QueryTypes.SELECT });
   const data = object.map((res) => ({
     ...res,
-    author: "Eltra"
   }))
 
   res.render("projectDetail", { data: data[0] });
@@ -273,7 +272,7 @@ async function addLogin(req, res) {
 
     // memeriksa apakah email belum terdaftar
     if (!object.length) {
-      req.flash("danger", "user not");
+      req.flash("danger", "user tidak di temukan");
       return res.redirect("/login");
     }
 
@@ -283,6 +282,7 @@ async function addLogin(req, res) {
         return res.redirect("/login");
       } else {
         req.session.isLogin = true;
+        req.session.idUser = object[0].id;
         req.session.user = object[0].name;
         req.flash("succes", "login succes");
         res.redirect("/index");

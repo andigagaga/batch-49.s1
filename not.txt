@@ -35,3 +35,9 @@ npx sequelize-cli init = init module sequelize
 
 authentication = untuk memverivikasi data / haik pengguna
 
+SELECT projets.id, projets.name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, projets."createdAt", projets."updatedAt",
+users.name AS author FROM projets LEFT JOIN users on projets.author = users.id;
+
+
+SELECT "projets".id, "projets".name, start_date, end_date, description, react, java, node_js, socket_io, image, 
+users.name AS author FROM "projets" LEFT JOIN users ON "projets".author = users.id;
