@@ -68,7 +68,7 @@ app.post("/updateProject/:id", updateProject);
 
 async function home(req, res) {
   try {
-    const query = `SELECT "projets".id, "projets".name, start_date, end_date, description, react, java, node_js, socket_io, image, 
+    const query = `SELECT "projets".id, "projets".name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, 
     users.name AS author FROM "projets" LEFT JOIN users ON "projets".author = users.id;`;
     let object = await sequelize.query(query, { type: QueryTypes.SELECT });
 
@@ -170,7 +170,7 @@ function testimonial(req, res) {
 async function projectDetail(req, res) {
   const { id } = req.params;
 
-  const query = `SELECT "projets".id, "projets".name, start_date, end_date, description, react, java, node_js, socket_io, image, 
+  const query = `SELECT "projets".id, "projets".name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, 
   users.name AS author FROM "projets" LEFT JOIN users ON "projets".author = users.id WHERE projets.id=${id}`;
   const object = await sequelize.query(query, { type: QueryTypes.SELECT });
   const data = object.map((res) => ({
