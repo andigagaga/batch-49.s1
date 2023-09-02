@@ -5,6 +5,7 @@ const port = 7000;
 const bcrypt = require("bcrypt");
 const flash = require("express-flash");
 const session = require("express-session");
+const upload = require("./src/middlewares/uploadFiles");
 
 const config = require("./src/config/config.json");
 const { Sequelize, QueryTypes } = require("sequelize");
@@ -18,6 +19,8 @@ app.set("views", path.join(__dirname, "src", "views"));
 
 // Mengatur folder untuk static assets seperti CSS, JavaScript, dll.
 app.use(express.static(path.join(__dirname, "src", "public")));
+app.use(express.static("src/uploads"));
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use(flash());
@@ -58,8 +61,8 @@ app.get("/logout", logout);
 // route post
 app.post("/register", addRegister);
 app.post("/login", addLogin);
-app.post("/formMyproject", addProject);
-app.post("/updateProject/:id", updateProject);
+app.post("/formMyproject", upload.single("upload-image"), addProject);
+app.post("/updateProject/:id", upload.single("upload-image"), updateProject);
 
 // home
 // function home(req, res) {
@@ -68,9 +71,20 @@ app.post("/updateProject/:id", updateProject);
 
 async function home(req, res) {
   try {
-    const query = `SELECT "projets".id, "projets".name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, 
-    users.name AS author FROM "projets" LEFT JOIN users ON "projets".author = users.id;`;
-    let object = await sequelize.query(query, { type: QueryTypes.SELECT });
+    let query = "";
+    let object = "";
+
+    if (req.session.idUser) {
+       query = `SELECT "projets".id, "projets".name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, 
+    users.name AS author FROM "projets" INNER JOIN users ON "projets".author = users.id WHERE "projets".author = :idUser;`;
+     object = await sequelize.query(query, { type : QueryTypes.SELECT, replacements:{
+      idUser : req.session.idUser,
+    }, });
+    } else {
+       query = `SELECT "projets".id, "projets".name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, 
+    users.name AS author FROM "projets" INNER JOIN users ON "projets".author = users.id;`;
+       object = await sequelize.query(query, { type: QueryTypes.SELECT });
+    }
 
     let dataProject = object.map((item) => {
       return {
@@ -119,7 +133,7 @@ async function addProject(req, res) {
 
   const duration = countDuration(startDate, endDate);
   const author = req.session.idUser;
-  const image = "image.png"
+  const image = req.file.filename;
 
   // Mengubah nilai string kosong menjadi false jika checkbox tidak dipilih
   const reactjsCheck = react === "true" ? true : false;
@@ -175,7 +189,7 @@ async function projectDetail(req, res) {
   const object = await sequelize.query(query, { type: QueryTypes.SELECT });
   const data = object.map((res) => ({
     ...res,
-  }))
+  }));
 
   res.render("projectDetail", { data: data[0] });
 }
@@ -222,6 +236,7 @@ async function updateProject(req, res) {
   } = req.body;
 
   const duration = countDuration(startDate, endDate);
+  const image = req.file.filename;
 
   // Nilai True/False
   const reactjsCheck = react ? true : false;
@@ -230,7 +245,7 @@ async function updateProject(req, res) {
   const socketioCheck = socketio ? true : false;
 
   await sequelize.query(`UPDATE "projets"
-	SET name='${name}', start_date='${startDate}', end_date='${endDate}', duration='${duration}', description='${description}', react='${reactjsCheck}', java='${javaCheck}', node_js='${nodeJsCheck}', socket_io='${socketioCheck}', "createdAt"=NOW(), "updatedAt"= NOW()
+	SET name='${name}', start_date='${startDate}', end_date='${endDate}', duration='${duration}', description='${description}', react='${reactjsCheck}', java='${javaCheck}', node_js='${nodeJsCheck}', socket_io='${socketioCheck}', image='${image}' , "createdAt"=NOW(), "updatedAt"= NOW()
 	WHERE id = ${id};`);
 
   res.redirect("/index");

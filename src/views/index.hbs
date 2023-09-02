@@ -106,7 +106,7 @@
     {{/if}}
     {{#unless isLogin}}
       <div class="alert alert-danger" role="alert" id="error-alert">
-        <div class="container text-center" >
+        <div class="container text-center">
           Silahkan Login Terlebih Dahulu
         </div>
       </div>
@@ -166,82 +166,89 @@
       <div class="mb-5">
         <h3 class="text-center fw-bolder">MY PROJECT</h3>
       </div>
-      <div class="cards-my-projects row gap-5 justify-content-center d-flex">
-        {{#each dataProject}}
-          <div
-            class="card row-col-6 bg-white"
-            style="width: 370px; height: auto"
-          >
-            <div style="width: 100%; height: auto">
+      {{#if this.isLogin}}
+        <div class="cards-my-projects row gap-5 justify-content-center d-flex">
+          {{#each dataProject}}
+            <div
+              class="card row-col-6 bg-white"
+              style="width: 370px; height: auto"
+            >
               <div style="width: 100%; height: auto">
-                <img
-                  src="images/anak.png"
-                  class="card-img-top"
-                  alt="my-project"
-                  style="object-fit: cover; width: 100%; height: 250px"
-                />
-              </div>
-              
-              <div class="card-body">
-                <div><i class="fa-solid fa-user"></i> : {{this.author}}</div>
-                <a
-                  href="/projectDetail/{{this.id}}"
-                  style="text-decoration: none;"
-                  class="text-black"
-                >
-
-                  <h3>{{this.name}}</h3>
-                  
-              
-                </a>
-
-                <h6>{{this.start_date}} ➖ {{this.end_date}}</h6>
-                <h6>Durasi: {{this.duration}}</h6>
-                <h6 class="card-text">{{this.description}}</h6>
-                <div class="project-icon">
-                  {{#if this.react}}
-                    <i class="fa-brands fa-react" style="margin-right: 8px"></i>
-                  {{/if}}
-                  {{#if this.java}}
-                    <i
-                      class="fa-brands fa-square-js"
-                      style="margin-right: 8px"
-                    ></i>
-                  {{/if}}
-                  {{#if this.node_js}}
-                    <i
-                      class="fa-brands fa-node-js"
-                      style="margin-right: 8px"
-                    ></i>
-                  {{/if}}
-                  {{#if this.socket_io}}
-                    <i class="fa-brands fa-vuejs" style="margin-right: 8px"></i>
-                  {{/if}}
+                <div style="width: 100%; height: auto">
+                  <img
+                    src="{{this.image}}"
+                    class="card-img-top"
+                    alt="my-project"
+                    style="object-fit: cover; width: 100%; height: 250px"
+                  />
                 </div>
 
-                {{#if this.isLogin}}
-                  <div class="d-flex mt-2">
-                    <a
-                      href="/editProeject/{{this.id}}"
-                      class="w-50 rounded bg-black text-white text-center"
-                      style="border: none; margin-right: 8px; text-decoration:none"
-                    >
-                      edit
-                    </a>
-                    <a
-                      href="/deleteProject/{{this.id}}"
-                      class="w-50 rounded bg-black text-white text-center"
-                      style="border: none; text-decoration:none"
-                    >
-                      delete
-                    </a>
+                <div class="card-body">
+                  <div><i class="fa-solid fa-user"></i> : {{this.author}}</div>
+                  <a
+                    href="/projectDetail/{{this.id}}"
+                    style="text-decoration: none;"
+                    class="text-black"
+                  >
+
+                    <h3>{{this.name}}</h3>
+
+                  </a>
+
+                  <h6>{{this.start_date}} ➖ {{this.end_date}}</h6>
+                  <h6>Durasi: {{this.duration}}</h6>
+                  <h6 class="card-text">{{this.description}}</h6>
+                  <div class="project-icon">
+                    {{#if this.react}}
+                      <i
+                        class="fa-brands fa-react"
+                        style="margin-right: 8px"
+                      ></i>
+                    {{/if}}
+                    {{#if this.java}}
+                      <i
+                        class="fa-brands fa-square-js"
+                        style="margin-right: 8px"
+                      ></i>
+                    {{/if}}
+                    {{#if this.node_js}}
+                      <i
+                        class="fa-brands fa-node-js"
+                        style="margin-right: 8px"
+                      ></i>
+                    {{/if}}
+                    {{#if this.socket_io}}
+                      <i
+                        class="fa-brands fa-vuejs"
+                        style="margin-right: 8px"
+                      ></i>
+                    {{/if}}
                   </div>
-                {{/if}}
+
+                  {{#if this.isLogin}}
+                    <div class="d-flex mt-2">
+                      <a
+                        href="/editProeject/{{this.id}}"
+                        class="w-50 rounded bg-black text-white text-center"
+                        style="border: none; margin-right: 8px; text-decoration:none"
+                      >
+                        edit
+                      </a>
+                      <a
+                        href="/deleteProject/{{this.id}}"
+                        class="w-50 rounded bg-black text-white text-center"
+                        style="border: none; text-decoration:none"
+                      >
+                        delete
+                      </a>
+                    </div>
+                  {{/if}}
+                </div>
               </div>
             </div>
-          </div>
-        {{/each}}
-      </div>
+          {{/each}}
+        </div>
+      {{/if}}
     </div>
 
     <script
@@ -250,34 +257,20 @@
       crossorigin="anonymous"
     ></script>
     <script>
-  // JavaScript untuk menampilkan pesan kesalahan
-  document.addEventListener("DOMContentLoaded", function() {
-    const errorAlert = document.getElementById("error-alert");
-    
-    if (errorAlert) {
-      errorAlert.style.display = "block";
-      
-      setTimeout(function() {
-        errorAlert.style.display = "none";
-      }, 2000); // 5000 milidetik = 5 detik
-    }
-  });
-</script>
- <script>
-  // JavaScript untuk menampilkan pesan kesalahan
-  document.addEventListener("DOMContentLoaded", function() {
-    const succesAlert = document.getElementById("succes-alert");
-    
-    if ( succesAlert) {
-      succesAlert.style.display = "block";
-      
-      setTimeout(function() {
-         succesAlert.style.display = "none";
-      }, 2000); // 5000 milidetik = 5 detik
-    }
-  });
-</script>
+      // JavaScript untuk menampilkan pesan kesalahan
+      document.addEventListener("DOMContentLoaded", function() { const
+      errorAlert = document.getElementById("error-alert"); if (errorAlert) {
+      errorAlert.style.display = "block"; setTimeout(function() {
+      errorAlert.style.display = "none"; }, 2000); // 2000 milidetik = 2 detik }
+      });
+    </script>
+    <script>
+      // JavaScript untuk menampilkan pesan sukses
+      document.addEventListener("DOMContentLoaded", function() { const
+      successAlert = document.getElementById("success-alert"); if (successAlert)
+      { successAlert.style.display = "block"; setTimeout(function() {
+      successAlert.style.display = "none"; }, 2000); // 2000 milidetik = 2 detik
+      } });
+    </script>
   </body>
 </html>
-
-
