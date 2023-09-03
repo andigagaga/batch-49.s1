@@ -75,15 +75,18 @@ async function home(req, res) {
     let object = "";
 
     if (req.session.idUser) {
-       query = `SELECT "projets".id, "projets".name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, 
+      query = `SELECT "projets".id, "projets".name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, 
     users.name AS author FROM "projets" INNER JOIN users ON "projets".author = users.id WHERE "projets".author = :idUser;`;
-     object = await sequelize.query(query, { type : QueryTypes.SELECT, replacements:{
-      idUser : req.session.idUser,
-    }, });
+      object = await sequelize.query(query, {
+        type: QueryTypes.SELECT,
+        replacements: {
+          idUser: req.session.idUser,
+        },
+      });
     } else {
-       query = `SELECT "projets".id, "projets".name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, 
+      query = `SELECT "projets".id, "projets".name, start_date, end_date, duration, description, react, java, node_js, socket_io, image, 
     users.name AS author FROM "projets" INNER JOIN users ON "projets".author = users.id;`;
-       object = await sequelize.query(query, { type: QueryTypes.SELECT });
+      object = await sequelize.query(query, { type: QueryTypes.SELECT });
     }
 
     let dataProject = object.map((item) => {

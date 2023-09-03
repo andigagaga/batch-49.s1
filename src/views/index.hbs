@@ -258,14 +258,19 @@
     ></script>
     <script>
       // JavaScript untuk menampilkan pesan kesalahan
-      document.addEventListener("DOMContentLoaded", function() { const
-      errorAlert = document.getElementById("error-alert"); if (errorAlert) {
-      errorAlert.style.display = "block"; setTimeout(function() {
-      errorAlert.style.display = "none"; }, 2000); // 2000 milidetik = 2 detik }
-      });
+     document.addEventListener("DOMContentLoaded", function() {
+    const errorAlert = document.getElementById("error-alert");
+    
+    if (errorAlert) {
+      errorAlert.style.display = "block";
+      
+      setTimeout(function() {
+        errorAlert.style.display = "none";
+      }, 2000); // 5000 milidetik = 5 detik
+    }
+  });
     </script>
     <script>
-      // JavaScript untuk menampilkan pesan sukses
       document.addEventListener("DOMContentLoaded", function() { const
       successAlert = document.getElementById("success-alert"); if (successAlert)
       { successAlert.style.display = "block"; setTimeout(function() {
